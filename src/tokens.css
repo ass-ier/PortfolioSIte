@@ -1,0 +1,177 @@
+/*
+ * DESIGN TOKEN SYSTEM
+ * Layer 1 – Primitives   (raw scales, never applied to UI directly)
+ * Layer 2 – Semantic     (purpose-assigned, reference primitives)
+ * Layer 3 – Component    (component-specific, reference semantics)
+ */
+
+:root {
+
+  /* ─── LAYER 1: PRIMITIVES ───────────────────────────────────────── */
+
+  /* Neutral scale */
+  --neutral-0:   #ffffff;
+  --neutral-50:  #f8f9fb;
+  --neutral-100: #eef0f4;
+  --neutral-200: #d8dce5;
+  --neutral-300: #b0b8c9;
+  --neutral-400: #8692a8;
+  --neutral-500: #5d6b82;
+  --neutral-600: #3d4a5c;
+  --neutral-700: #273040;
+  --neutral-800: #161e2c;
+  --neutral-900: #0b1018;
+  --neutral-950: #060a10;
+
+  /* Slate-blue (primary brand hue — refined, not neon) */
+  --slate-100: #e4e8f5;
+  --slate-200: #c4cce8;
+  --slate-300: #9aaad8;
+  --slate-400: #7087c6;
+  --slate-500: #4d67b5;   /* primary brand */
+  --slate-600: #3a50a0;
+  --slate-700: #2b3d88;
+  --slate-800: #1e2d6d;
+  --slate-900: #121d4a;
+
+  /* Warm sand (accent / highlight) */
+  --sand-100: #fdf6ec;
+  --sand-200: #f8e8ca;
+  --sand-300: #f2d09a;
+  --sand-400: #e8b56a;
+  --sand-500: #d9934a;   /* warm accent */
+  --sand-600: #c07530;
+  --sand-700: #9c5a1e;
+
+  /* Sage green (success / positive) */
+  --sage-100: #e8f5ee;
+  --sage-400: #5cad7e;
+  --sage-500: #3d9465;
+
+  /* Crimson (error / destructive) */
+  --crimson-400: #e05c6b;
+  --crimson-500: #c63d4e;
+
+  /* Typography scale */
+  --font-display: 'Syne', 'Space Grotesk', sans-serif;
+  --font-body:    'Inter', sans-serif;
+  --font-mono:    'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Size scale */
+  --size-1:  0.25rem;
+  --size-2:  0.5rem;
+  --size-3:  0.75rem;
+  --size-4:  1rem;
+  --size-5:  1.25rem;
+  --size-6:  1.5rem;
+  --size-8:  2rem;
+  --size-10: 2.5rem;
+  --size-12: 3rem;
+  --size-16: 4rem;
+  --size-20: 5rem;
+  --size-24: 6rem;
+
+  /* Radius scale */
+  --radius-sm:   6px;
+  --radius-md:   10px;
+  --radius-lg:   16px;
+  --radius-xl:   24px;
+  --radius-full: 9999px;
+
+  /* Shadow scale */
+  --shadow-sm:  0 1px 3px rgba(0,0,0,0.2);
+  --shadow-md:  0 4px 16px rgba(0,0,0,0.25);
+  --shadow-lg:  0 12px 40px rgba(0,0,0,0.35);
+  --shadow-glow-brand: 0 0 28px rgba(77,103,181,0.35);
+  --shadow-glow-accent: 0 0 28px rgba(217,147,74,0.3);
+
+  /* Motion */
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-spring:    cubic-bezier(0.34, 1.56, 0.64, 1);
+  --duration-fast:  150ms;
+  --duration-base:  250ms;
+  --duration-slow:  400ms;
+
+
+  /* ─── LAYER 2: SEMANTIC TOKENS ──────────────────────────────────── */
+
+  /* Surface */
+  --color-bg-base:       var(--neutral-950);
+  --color-bg-subtle:     var(--neutral-900);
+  --color-bg-raised:     var(--neutral-800);
+  --color-bg-overlay:    rgba(11,16,24,0.85);
+
+  /* Border */
+  --color-border-default: rgba(255,255,255,0.08);
+  --color-border-subtle:  rgba(255,255,255,0.04);
+  --color-border-strong:  rgba(255,255,255,0.16);
+  --color-border-brand:   rgba(77,103,181,0.4);
+
+  /* Text */
+  --color-text-primary:   var(--neutral-50);
+  --color-text-secondary: var(--neutral-300);
+  --color-text-tertiary:  var(--neutral-500);
+  --color-text-inverse:   var(--neutral-950);
+  --color-text-brand:     var(--slate-300);
+  --color-text-accent:    var(--sand-400);
+
+  /* Interactive / Brand */
+  --color-interactive-brand:        var(--slate-500);
+  --color-interactive-brand-hover:  var(--slate-400);
+  --color-interactive-brand-subtle: rgba(77,103,181,0.12);
+
+  /* Accent */
+  --color-accent:        var(--sand-500);
+  --color-accent-hover:  var(--sand-400);
+  --color-accent-subtle: rgba(217,147,74,0.12);
+
+  /* Status */
+  --color-success: var(--sage-500);
+  --color-error:   var(--crimson-500);
+
+  /* Glass effect */
+  --glass-bg:     rgba(22,30,44,0.6);
+  --glass-border: rgba(255,255,255,0.07);
+  --glass-blur:   14px;
+
+
+  /* ─── LAYER 3: COMPONENT TOKENS ─────────────────────────────────── */
+
+  /* Button / primary */
+  --btn-primary-bg:         var(--color-interactive-brand);
+  --btn-primary-bg-hover:   var(--color-interactive-brand-hover);
+  --btn-primary-text:       var(--neutral-0);
+  --btn-primary-shadow:     var(--shadow-glow-brand);
+
+  /* Button / ghost */
+  --btn-ghost-border:       var(--color-border-strong);
+  --btn-ghost-text:         var(--color-text-secondary);
+  --btn-ghost-border-hover: var(--color-border-brand);
+  --btn-ghost-text-hover:   var(--color-text-brand);
+
+  /* Tag */
+  --tag-bg:     var(--color-interactive-brand-subtle);
+  --tag-border: var(--color-border-brand);
+  --tag-text:   var(--color-text-brand);
+
+  /* Card */
+  --card-bg:          var(--glass-bg);
+  --card-border:      var(--glass-border);
+  --card-border-hover: var(--color-border-brand);
+  --card-radius:      var(--radius-lg);
+
+  /* Nav */
+  --nav-bg:      var(--color-bg-overlay);
+  --nav-border:  var(--color-border-subtle);
+  --nav-height:  64px;
+
+  /* Timeline */
+  --timeline-line:   var(--color-border-default);
+  --timeline-dot:    var(--color-interactive-brand);
+  --timeline-dot-accent: var(--color-accent);
+
+  /* Badge */
+  --badge-bg:    var(--color-accent-subtle);
+  --badge-border: rgba(217,147,74,0.25);
+  --badge-text:  var(--color-text-accent);
+}

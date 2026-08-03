@@ -1,0 +1,22 @@
+.footer {
+  border-top: 1px solid var(--color-border-subtle);
+  padding: var(--size-8) 0;
+  position: relative;
+  z-index: 1;
+}
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--size-2);
+}
+.copy {
+  font-size: 0.85rem;
+  color: var(--color-text-tertiary);
+}
+.name { color: var(--color-text-brand); font-weight: 500; }
+.sub {
+  font-size: 0.78rem;
+  color: var(--color-text-tertiary);
+}
