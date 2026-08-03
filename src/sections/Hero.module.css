@@ -2,6 +2,7 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
+  justify-content: center;
   padding-top: var(--nav-height);
   position: relative;
   overflow: hidden;
@@ -33,6 +34,7 @@
   grid-template-columns: 1fr 1fr;
   gap: var(--size-16);
   align-items: center;
+  width: 100%;
 }
 
 .text { display: flex; flex-direction: column; }
@@ -43,7 +45,7 @@
 }
 
 .name {
-  font-size: clamp(3.5rem, 7vw, 6.5rem);
+  font-size: clamp(2.6rem, 10vw, 6.5rem);
   font-weight: 800;
   line-height: 0.95;
   margin-bottom: var(--size-5);
@@ -235,17 +237,28 @@
 @media (max-width: 860px) {
   .content {
     grid-template-columns: 1fr;
-    text-align: center;
     justify-items: center;
+    text-align: center;
   }
   .text {
     align-items: center;
     width: 100%;
+    max-width: 100%;
   }
   .graphic { display: none; }
-  .actions { justify-content: center; }
-  .summary { margin-inline: auto; }
-  .role { justify-content: center; }
-  .eyebrow { text-align: center; }
-  .name { text-align: center; }
+  .name {
+    text-align: center;
+    width: 100%;
+    font-size: clamp(2.2rem, 9vw, 3.8rem);
+    word-break: keep-all;
+    overflow-wrap: normal;
+  }
+  .eyebrow { text-align: center; width: 100%; }
+  .role { justify-content: center; width: 100%; }
+  .summary {
+    margin-inline: auto;
+    text-align: center;
+    max-width: 100%;
+  }
+  .actions { justify-content: center; width: 100%; }
 }
