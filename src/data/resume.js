@@ -79,7 +79,7 @@ export const projects = [
     category: 'design',
     featured: true,
     badge: 'UI/UX · Frontend',
-    link: 'https://simbatech-a7y6.vercel.app/',
+    link: 'https://www.simbatech.et/',
     linkLabel: 'Live Site ↗',
     description:
       'Designed and developed a modern responsive corporate website. Led the full UI/UX lifecycle — research, wireframing, high-fidelity prototyping in Figma, and final coded delivery with optimized cross-device performance.',
