@@ -4,7 +4,7 @@ import { useInView } from '../hooks/useInView';
 import { projects } from '../data/resume';
 import styles from './Projects.module.css';
 
-const FILTERS = ['all', 'design', 'fullstack', 'ai'];
+const FILTERS = ['all', 'infra', 'ml'];
 
 function ProjectModal({ project, onClose }) {
   return (
@@ -126,7 +126,7 @@ export default function Projects() {
         <motion.h2 className="section-title"
           initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.1 }}>
-          Things I've <span className="highlight">built</span>
+          Things I've <span className="highlight">built &amp; secured</span>
         </motion.h2>
 
         {/* Filter chips */}
@@ -145,7 +145,7 @@ export default function Projects() {
               onClick={() => setFilter(f)}
               aria-pressed={filter === f}
             >
-              {f === 'all' ? 'All' : f === 'design' ? 'Design' : f === 'fullstack' ? 'Full Stack' : 'AI / ML'}
+              {f === 'all' ? 'All' : f === 'infra' ? 'Infrastructure' : 'AI / ML'}
             </button>
           ))}
         </motion.div>

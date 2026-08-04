@@ -47,7 +47,7 @@ export default function Skills() {
         <motion.h2 className="section-title"
           initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.1 }}>
-          My <span className="highlight">toolkit</span>
+          My <span className="highlight">arsenal</span>
         </motion.h2>
 
         <div className={styles.grid}>

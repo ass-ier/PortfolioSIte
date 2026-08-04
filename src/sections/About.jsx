@@ -35,19 +35,20 @@ export default function About() {
           <div className={styles.textSide}>
             <motion.p className="section-label" variants={fadeUp}>About</motion.p>
             <motion.h2 className={`section-title ${styles.heading}`} variants={fadeUp}>
-              Designing with purpose,<br />
-              <span className="highlight">building with precision.</span>
+              Securing systems,<br />
+              <span className="highlight">protecting people.</span>
             </motion.h2>
             <motion.p className={styles.body} variants={fadeUp}>
-              I'm a Software Engineering graduate from HiLCoE (BSc, 2021–2025) with hands-on
-              experience spanning UI/UX design, frontend engineering, and IT infrastructure.
-              I thrive at the intersection of design and code — turning user problems into
-              polished digital experiences.
+              I'm an IT Infrastructure and Cybersecurity Engineer with a BSc in Software
+              Engineering from HiLCoE (2021–2025). I specialize in Microsoft cloud environments,
+              identity and access management, security operations, and network infrastructure —
+              with hands-on experience defending real enterprise systems.
             </motion.p>
             <motion.p className={styles.body} variants={fadeUp}>
-              Previously led end-to-end product development at Droga Consulting, owning everything
-              from Figma wireframes to final deployment. I believe great products are built when
-              design and engineering speak the same language.
+              Currently serving as IT Support Team Lead at MMCY, I oversee security monitoring,
+              incident response, and cloud governance. I'm Azure-certified and Google
+              Cybersecurity-certified, with a proven track record of keeping systems compliant,
+              resilient, and breach-free.
             </motion.p>
 
             <motion.div className={styles.statsRow} variants={fadeUp}>
@@ -62,9 +63,9 @@ export default function About() {
             <div className={`glass ${styles.card}`}>
               {[
                 { icon: '🎓', title: 'BSc Software Engineering', sub: 'HiLCoE · 2021 – 2025' },
-                { icon: '✦', title: 'UI/UX + Frontend', sub: 'Figma · React · Responsive Design' },
-                { icon: '☁', title: 'Azure Fundamentals', sub: 'AZ-900 Certified · Dec 2025' },
-                { icon: '⬡', title: 'Google Cybersecurity', sub: 'Professional Cert · Feb 2024' },
+                { icon: '☁', title: 'Azure Fundamentals (AZ-900)', sub: 'Microsoft Certified · Dec 2025' },
+                { icon: '🔒', title: 'Google Cybersecurity Professional', sub: 'Google · Feb 2024' },
+                { icon: '⬡', title: 'IT Support Team Lead', sub: 'MMCY · Apr 2026 – Present' },
               ].map((row) => (
                 <div key={row.title} className={styles.cardRow}>
                   <div className={styles.cardIcon}>{row.icon}</div>

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useTyped } from '../hooks/useInView';
 import styles from './Hero.module.css';
 
-const PHRASES = ['UI/UX Designer', 'Frontend Engineer', 'Product Thinker', 'Interface Craftsman'];
+const PHRASES = ['IT Infrastructure Engineer', 'Cybersecurity Analyst', 'Cloud & Identity Engineer', 'IT Support Team Lead'];
 
 /* Particle canvas */
 function ParticleCanvas() {
@@ -44,7 +44,7 @@ function ParticleCanvas() {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(77,103,181,${p.alpha})`;
+        ctx.fillStyle = `rgba(15,206,90,${p.alpha})`;
         ctx.fill();
       });
 
@@ -58,7 +58,7 @@ function ParticleCanvas() {
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(77,103,181,${0.06 * (1 - dist / 120)})`;
+            ctx.strokeStyle = `rgba(15,206,90,${0.07 * (1 - dist / 120)})`;
             ctx.lineWidth = 0.6;
             ctx.stroke();
           }
@@ -114,13 +114,13 @@ export default function Hero() {
           </motion.p>
 
           <motion.p className={styles.summary} variants={item}>
-            I craft interfaces that feel as good as they look — blending
-            thoughtful design with clean, performant code.
+            I secure networks, manage cloud identities, and respond to threats —
+            keeping systems resilient, compliant, and always-on.
           </motion.p>
 
           <motion.div className={styles.actions} variants={item}>
-            <a href="#projects" className={styles.btnPrimary}>View Work</a>
-            <a href="#contact"  className={styles.btnGhost}>Get in Touch</a>
+            <a href="#experience" className={styles.btnPrimary}>View Experience</a>
+            <a href="#contact"    className={styles.btnGhost}>Get in Touch</a>
           </motion.div>
         </motion.div>
 
@@ -136,9 +136,8 @@ export default function Hero() {
           <div className={styles.ring2} />
           <div className={styles.ring3} />
           <div className={styles.hexCore}>
-            <span>UI</span>
-            <span className={styles.hexSlash}>/</span>
-            <span>UX</span>
+            <span>SEC</span>
+            <span className={styles.hexSlash}>OPS</span>
           </div>
           <div className={`${styles.orbitDot} ${styles.dot1}`} />
           <div className={`${styles.orbitDot} ${styles.dot2}`} />

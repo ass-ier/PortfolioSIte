@@ -73,14 +73,15 @@ export default function Contact() {
         <motion.h2 className="section-title"
           initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.1 }}>
-          Let's build something<br />
-          <span className="highlight">great together</span>
+          Open to new<br />
+          <span className="highlight">opportunities</span>
         </motion.h2>
         <motion.p className={styles.sub}
           initial={{ opacity: 0, y: 16 }} animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.2 }}>
-          I'm open to UI/UX and Frontend opportunities — full-time roles, freelance
-          projects, or just a conversation. Reach out directly or copy any contact below.
+          I'm actively looking for IT Infrastructure and Cybersecurity roles —
+          full-time positions, contract work, or just a conversation about the space.
+          Reach out directly or copy any contact below.
         </motion.p>
 
         <div className={styles.grid}>

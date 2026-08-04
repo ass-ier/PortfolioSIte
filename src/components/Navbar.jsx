@@ -57,7 +57,7 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <a href="mailto:assieranteneh0306@gmail.com" className={styles.cta} target="_blank" rel="noopener noreferrer">
+        <a href="mailto:assieranteneh0306@gmail.com?subject=IT%20Infrastructure%20%2F%20Cybersecurity%20Opportunity" className={styles.cta} target="_blank" rel="noopener noreferrer">
           Hire me
         </a>
 
