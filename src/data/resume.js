@@ -192,6 +192,14 @@ export const skills = [
 
 export const certifications = [
   {
+    id: 'comptia-cysa-004',
+    title: 'CompTIA CySA+ (CS0-004)',
+    issuer: 'CompTIA',
+    date: 'Aug 2026 - Aug 2029',
+    color: 'brand',
+    link: 'https://cp.certmetrics.com/comptia/en/public/verify/credential/5bea7de36f594c369ba247aef52088e7',
+  },
+  {
     id: 'az900',
     title: 'AZ-900 Microsoft Azure Fundamentals',
     issuer: 'Microsoft',
@@ -227,7 +235,7 @@ export const certifications = [
 
 export const stats = [
   { label: 'Years in IT', value: 2, suffix: '+' },
-  { label: 'Users Managed', value: 200, suffix: '+' },
-  { label: 'Incidents Resolved', value: 500, suffix: '+' },
+  { label: 'Users Managed', value: 500, suffix: '+' },
+  { label: 'Incidents Resolved', value: 200, suffix: '+' },
   { label: 'Uptime SLA', value: 99, suffix: '%' },
 ];
