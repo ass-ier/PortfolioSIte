@@ -1,0 +1,9 @@
+.study { display: block; width: 100%; height: auto; color: var(--ink); overflow: visible; }
+.study text { fill: currentColor; font-family: var(--font-body); font-size: 19px; font-weight: 500; }
+.study .equation { font-size: 50px; letter-spacing: -0.04em; }
+.study .rowNumber { font-size: 14px; }
+.road { fill: none; stroke: currentColor; stroke-width: 1; opacity: 0.3; }
+.lane { fill: none; stroke: currentColor; stroke-width: 1; stroke-dasharray: 10 12; opacity: 0.25; }
+.route { fill: none; stroke: var(--orange-ink); stroke-width: 2; }
+.orbit { fill: none; stroke: currentColor; stroke-width: 1; opacity: 0.3; }
+.brackets { fill: none; stroke: currentColor; stroke-width: 1.5; }

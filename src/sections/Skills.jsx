@@ -1,100 +1,144 @@
-import { motion } from 'framer-motion';
-import { useInView } from '../hooks/useInView';
+import { useState } from 'react';
+import { AnimatePresence, motion as Motion } from 'framer-motion';
+import Arrow from '../components/Arrow';
+import Dialog from '../components/Dialog';
+import useMediaQuery from '../hooks/useMediaQuery';
 import { skills, certifications } from '../data/resume';
 import styles from './Skills.module.css';
 
-function SkillGroup({ group, index, inView }) {
+function CertificateImage({ credential, expanded = false }) {
+  const [status, setStatus] = useState('loading');
+
   return (
-    <motion.div
-      className={`glass ${styles.group}`}
-      initial={{ opacity: 0, y: 28 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.55, delay: index * 0.1, ease: [0.25, 1, 0.5, 1] }}
-      whileHover={{ y: -4, transition: { duration: 0.2 } }}
-    >
-      <div className={styles.groupHeader}>
-        <span className={`${styles.icon} ${styles[`icon${group.color}`]}`}>{group.icon}</span>
-        <h3 className={styles.groupTitle}>{group.category}</h3>
+    <span className={styles.imageFrame} aria-busy={status === 'loading'}>
+      {status !== 'error' && (
+        <img
+          src={credential.image}
+          srcSet={`${credential.imageSmall} 800w, ${credential.image} ${credential.imageWidth}w`}
+          sizes={expanded ? '(max-width: 760px) 90vw, min(90vw, 1080px)' : '(max-width: 1000px) 40vw, 36vw'}
+          width={credential.imageWidth}
+          height={credential.imageHeight}
+          alt={credential.imageAlt}
+          loading={expanded ? 'eager' : 'lazy'}
+          decoding="async"
+          onLoad={() => setStatus('loaded')}
+          onError={() => setStatus('error')}
+        />
+      )}
+      {status === 'loading' && <span className={styles.imageStatus} aria-hidden="true">Loading certificate...</span>}
+      {status === 'error' && <span className={styles.imageError} role="alert">Could not load this certificate image. Use the verification link instead.</span>}
+    </span>
+  );
+}
+
+function CertificatePreview({ credential, onOpen }) {
+  const reducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)');
+
+  return (
+    <figure className={styles.certificatePreview} data-certificate-preview={credential.id}>
+      <button className={styles.previewButton} onClick={() => onOpen(credential)} aria-label={`Enlarge ${credential.title} certificate`} aria-haspopup="dialog">
+        <span className={styles.previewViewport}>
+          <AnimatePresence initial={false}>
+            <Motion.span
+              className={styles.previewImage}
+              key={credential.id}
+              initial={reducedMotion ? false : { opacity: 0, clipPath: 'inset(0% 100% 0% 0%)' }}
+              animate={{ opacity: 1, clipPath: 'inset(0% 0% 0% 0%)' }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: reducedMotion ? 0 : 0.24, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <CertificateImage credential={credential} />
+            </Motion.span>
+          </AnimatePresence>
+        </span>
+        <span className={styles.previewAction}>Open certificate <Arrow /></span>
+      </button>
+      <figcaption>{credential.title}<span>{credential.issuer} &middot; {credential.date}</span></figcaption>
+    </figure>
+  );
+}
+
+function CertificateDetails({ credential, onClose }) {
+  return (
+    <Dialog labelledBy={`certificate-title-${credential.id}`} onDismiss={onClose} className={styles.certificateDialog}>
+      <div className={styles.dialogHeader}>
+        <div>
+          <h2 id={`certificate-title-${credential.id}`}>{credential.title}</h2>
+          <p>{credential.issuer} &middot; {credential.date}</p>
+        </div>
+        <button className={styles.closeButton} onClick={onClose} aria-label="Close certificate">
+          Close
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6" stroke="currentColor" strokeWidth="1.5" /></svg>
+        </button>
       </div>
-      <ul className={styles.list}>
-        {group.items.map((item, i) => (
-          <motion.li
-            key={item}
-            className={styles.item}
-            initial={{ opacity: 0, x: -10 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ delay: index * 0.1 + i * 0.05 }}
-          >
-            <span className={styles.dot} />
-            {item}
-          </motion.li>
-        ))}
-      </ul>
-    </motion.div>
+      <div className={styles.dialogImage}><CertificateImage credential={credential} expanded /></div>
+      <div className={styles.dialogActions}>
+        <a className="round-link" href={credential.link} target="_blank" rel="noopener noreferrer">
+          Verify credential <Arrow /><span className="visually-hidden"> (opens in a new tab)</span>
+        </a>
+        <a className="text-link" href={credential.image} target="_blank" rel="noopener noreferrer">
+          Open image <Arrow /><span className="visually-hidden"> (opens in a new tab)</span>
+        </a>
+      </div>
+    </Dialog>
   );
 }
 
 export default function Skills() {
-  const [ref, inView] = useInView();
+  const [preview, setPreview] = useState(() => certifications.find((credential) => credential.image));
+  const [selected, setSelected] = useState(null);
 
   return (
-    <section id="skills" className={`section ${styles.skills}`} ref={ref}>
+    <section id="skills" className={`section ${styles.skills}`} tabIndex={-1} aria-labelledby="skills-heading">
       <div className="container">
-        <motion.p className="section-label"
-          initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}}>
-          Skills
-        </motion.p>
-        <motion.h2 className="section-title"
-          initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.1 }}>
-          My <span className="highlight">arsenal</span>
-        </motion.h2>
-
-        <div className={styles.grid}>
-          {skills.map((g, i) => (
-            <SkillGroup key={g.category} group={g} index={i} inView={inView} />
+        <div className={styles.heading}>
+          <h2 id="skills-heading" className="section-title">The tools behind<br />the thinking.</h2>
+          <p>Cloud, identity, security, and the practical work of keeping systems running.</p>
+        </div>
+        <div className={styles.skillGrid}>
+          {skills.map((group) => (
+            <div className={styles.skillGroup} key={group.category}>
+              <h3>{group.category}</h3>
+              <ul>{group.items.map((item) => <li key={item}>{item}</li>)}</ul>
+            </div>
           ))}
         </div>
-
-        {/* Certifications row */}
-        <motion.div
-          className={styles.certsWrap}
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.5 }}
-        >
-          <p className={styles.certsLabel}>Certifications &amp; Awards</p>
-          <div className={styles.certsRow}>
-            {certifications.map((c, i) => (
-              <motion.div
-                key={c.id}
-                className={`glass ${styles.cert}`}
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={inView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ delay: 0.55 + i * 0.07 }}
-                whileHover={{ y: -3, transition: { duration: 0.2 } }}
+        <section id="credentials" className={styles.credentials} aria-labelledby="credentials-heading">
+          <div className={styles.credentialIntro}>
+            <h2 id="credentials-heading">Credentials &amp;<br />recognition.</h2>
+            <p className={styles.previewHint}><span className={styles.hoverHint}>Hover or focus to preview. Click a certificate to open it.</span><span className={styles.touchHint}>Tap anywhere on a certificate to open it.</span></p>
+            <CertificatePreview credential={preview} onOpen={setSelected} />
+          </div>
+          <div className={styles.credentialList}>
+            {certifications.map((credential) => (
+              <article
+                key={credential.id}
+                className={styles.credential}
+                data-credential={credential.id}
+                data-preview-active={preview.id === credential.id}
+                onPointerEnter={(event) => {
+                  if (credential.image && event.pointerType === 'mouse') setPreview(credential);
+                }}
+                onFocusCapture={() => {
+                  if (credential.image) setPreview(credential);
+                }}
               >
-                <div className={`${styles.certDot} ${styles[`certDot${c.color}`]}`} />
-                <div className={styles.certBody}>
-                  <p className={styles.certTitle}>{c.title}</p>
-                  <p className={styles.certMeta}>{c.issuer} · {c.date}</p>
-                  {c.link && (
-                    <a
-                      href={c.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.certLink}
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      Verify credential ↗
-                    </a>
-                  )}
+                <div>
+                  <h3>{credential.title}</h3>
+                  <p>{credential.issuer} &middot; {credential.date}</p>
+                  {credential.image && <button className={styles.viewCertificate} onClick={() => setSelected(credential)} aria-label={`View ${credential.title} certificate`} aria-haspopup="dialog">View certificate <Arrow /></button>}
                 </div>
-              </motion.div>
+                {credential.link ? (
+                  <a href={credential.link} target="_blank" rel="noopener noreferrer" className={styles.verify} aria-label={`Verify ${credential.title} (opens in a new tab)`}>
+                    <span>Verify</span><Arrow />
+                  </a>
+                ) : <span className={styles.recognition}>Award</span>}
+              </article>
             ))}
           </div>
-        </motion.div>
+        </section>
       </div>
+      {selected && <CertificateDetails credential={selected} onClose={() => setSelected(null)} />}
     </section>
   );
 }

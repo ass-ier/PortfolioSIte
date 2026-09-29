@@ -1,188 +1,23 @@
-/*
- * DESIGN TOKEN SYSTEM
- * Layer 1 – Primitives   (raw scales, never applied to UI directly)
- * Layer 2 – Semantic     (purpose-assigned, reference primitives)
- * Layer 3 – Component    (component-specific, reference semantics)
- */
-
 :root {
-
-  /* ─── LAYER 1: PRIMITIVES ───────────────────────────────────────── */
-
-  /* Neutral scale */
-  --neutral-0:   #ffffff;
-  --neutral-50:  #f0f4f0;
-  --neutral-100: #e2e8e2;
-  --neutral-200: #c4cfc4;
-  --neutral-300: #9aad9a;
-  --neutral-400: #6e876e;
-  --neutral-500: #4d664d;
-  --neutral-600: #344834;
-  --neutral-700: #1f2e1f;
-  --neutral-800: #121e12;
-  --neutral-900: #0a140a;
-  --neutral-950: #050d05;
-
-  /* Cyber-green (primary brand — terminal / security aesthetic) */
-  --green-100: #d6ffe4;
-  --green-200: #a8ffca;
-  --green-300: #6effa3;
-  --green-400: #33e87a;
-  --green-500: #0fce5a;   /* primary brand */
-  --green-600: #09a847;
-  --green-700: #068236;
-  --green-800: #045c26;
-  --green-900: #023618;
-
-  /* Electric-cyan (secondary / links) */
-  --cyan-300: #67e8f9;
-  --cyan-400: #22d3ee;
-  --cyan-500: #06b6d4;
-  --cyan-600: #0891b2;
-
-  /* Amber-warning (accent / highlights) */
-  --amber-300: #fcd34d;
-  --amber-400: #fbbf24;
-  --amber-500: #f59e0b;
-  --amber-600: #d97706;
-
-  /* Crimson (alert / destructive) */
-  --crimson-400: #f87171;
-  --crimson-500: #ef4444;
-
-  /* Typography scale */
-  --font-display: 'Syne', 'Space Grotesk', sans-serif;
-  --font-body:    'Inter', sans-serif;
-  --font-mono:    'JetBrains Mono', 'Fira Code', monospace;
-
-  /* Size scale */
-  --size-1:  0.25rem;
-  --size-2:  0.5rem;
-  --size-3:  0.75rem;
-  --size-4:  1rem;
-  --size-5:  1.25rem;
-  --size-6:  1.5rem;
-  --size-8:  2rem;
-  --size-10: 2.5rem;
-  --size-12: 3rem;
-  --size-16: 4rem;
-  --size-20: 5rem;
-  --size-24: 6rem;
-
-  /* Radius scale */
-  --radius-sm:   4px;
-  --radius-md:   8px;
-  --radius-lg:   12px;
-  --radius-xl:   20px;
-  --radius-full: 9999px;
-
-  /* Shadow scale */
-  --shadow-sm:  0 1px 3px rgba(0,0,0,0.4);
-  --shadow-md:  0 4px 16px rgba(0,0,0,0.4);
-  --shadow-lg:  0 12px 40px rgba(0,0,0,0.5);
-  --shadow-glow-brand:  0 0 24px rgba(15,206,90,0.3);
-  --shadow-glow-accent: 0 0 24px rgba(251,191,36,0.25);
-  --shadow-glow-cyan:   0 0 24px rgba(34,211,238,0.25);
-
-  /* Motion */
-  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
-  --ease-spring:    cubic-bezier(0.34, 1.56, 0.64, 1);
-  --duration-fast:  150ms;
-  --duration-base:  250ms;
-  --duration-slow:  400ms;
-
-
-  /* ─── LAYER 2: SEMANTIC TOKENS ──────────────────────────────────── */
-
-  /* Surface — deep near-black, slight green tint */
-  --color-bg-base:       #060d06;
-  --color-bg-subtle:     #0a130a;
-  --color-bg-raised:     #111c11;
-  --color-bg-overlay:    rgba(6,13,6,0.88);
-
-  /* Border */
-  --color-border-default: rgba(15,206,90,0.1);
-  --color-border-subtle:  rgba(15,206,90,0.05);
-  --color-border-strong:  rgba(15,206,90,0.2);
-  --color-border-brand:   rgba(15,206,90,0.35);
-
-  /* Text */
-  --color-text-primary:   #e8f5e8;
-  --color-text-secondary: #9aad9a;
-  --color-text-tertiary:  #4d664d;
-  --color-text-inverse:   #060d06;
-  --color-text-brand:     var(--green-400);
-  --color-text-accent:    var(--amber-400);
-  --color-text-cyan:      var(--cyan-400);
-
-  /* Interactive / Brand */
-  --color-interactive-brand:        var(--green-500);
-  --color-interactive-brand-hover:  var(--green-400);
-  --color-interactive-brand-subtle: rgba(15,206,90,0.08);
-
-  /* Accent */
-  --color-accent:        var(--amber-500);
-  --color-accent-hover:  var(--amber-400);
-  --color-accent-subtle: rgba(245,158,11,0.1);
-
-  /* Cyan */
-  --color-cyan:        var(--cyan-400);
-  --color-cyan-subtle: rgba(34,211,238,0.08);
-
-  /* Status */
-  --color-success: var(--green-500);
-  --color-warning: var(--amber-500);
-  --color-error:   var(--crimson-500);
-
-  /* Glass effect */
-  --glass-bg:     rgba(10,20,10,0.65);
-  --glass-border: rgba(15,206,90,0.08);
-  --glass-blur:   14px;
-
-
-  /* ─── LAYER 3: COMPONENT TOKENS ─────────────────────────────────── */
-
-  /* Button / primary */
-  --btn-primary-bg:         var(--color-interactive-brand);
-  --btn-primary-bg-hover:   var(--color-interactive-brand-hover);
-  --btn-primary-text:       #060d06;
-  --btn-primary-shadow:     var(--shadow-glow-brand);
-
-  /* Button / ghost */
-  --btn-ghost-border:       var(--color-border-strong);
-  --btn-ghost-text:         var(--color-text-secondary);
-  --btn-ghost-border-hover: var(--color-border-brand);
-  --btn-ghost-text-hover:   var(--color-text-brand);
-
-  /* Tag */
-  --tag-bg:     var(--color-interactive-brand-subtle);
-  --tag-border: var(--color-border-brand);
-  --tag-text:   var(--color-text-brand);
-
-  /* Card */
-  --card-bg:           var(--glass-bg);
-  --card-border:       var(--glass-border);
-  --card-border-hover: var(--color-border-brand);
-  --card-radius:       var(--radius-lg);
-
-  /* Nav */
-  --nav-bg:      var(--color-bg-overlay);
-  --nav-border:  var(--color-border-subtle);
-  --nav-height:  64px;
-
-  /* Timeline */
-  --timeline-line:       var(--color-border-default);
-  --timeline-dot:        var(--color-interactive-brand);
-  --timeline-dot-accent: var(--color-accent);
-
-  /* Badge */
-  --badge-bg:     var(--color-accent-subtle);
-  --badge-border: rgba(245,158,11,0.3);
-  --badge-text:   var(--color-text-accent);
-
-  /* Terminal / mono elements */
-  --terminal-bg:     rgba(6,13,6,0.9);
-  --terminal-border: var(--color-border-brand);
-  --terminal-text:   var(--green-400);
-  --terminal-prompt: var(--green-600);
+  --paper: #f3f2ed;
+  --white: #ffffff;
+  --ink: #242620;
+  --muted: #65665d;
+  --line: #cccfc4;
+  --dark: #242720;
+  --dark-raised: #30342b;
+  --on-dark: #f3f2ed;
+  --muted-on-dark: #b9bdb1;
+  --line-on-dark: #50564a;
+  --orange: #ef653f;
+  --orange-ink: #aa3518;
+  --lavender: #ccc9e3;
+  --sage: #bacbbf;
+  --font-body: 'Manrope', 'Helvetica Neue', Arial, sans-serif;
+  --gutter: clamp(1.25rem, 4.5vw, 5.5rem);
+  --page-width: 1600px;
+  --section-space: clamp(5rem, 9vw, 9rem);
+  --nav-height: 88px;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration: 240ms;
 }

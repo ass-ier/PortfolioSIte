@@ -1,0 +1,26 @@
+.composer { display: grid; grid-template-columns: 1.1fr 0.9fr; align-items: start; gap: clamp(2rem, 6vw, 6rem); margin-top: 4rem; padding-top: 3rem; border-top: 1px solid rgb(36 38 32 / 40%); }
+.form, .fields { min-width: 0; }
+.fields h3 { font-size: clamp(2rem, 3.5vw, 3.4rem); line-height: 1.15; }
+.intro { max-width: 60ch; margin-top: 1rem; font-size: 1rem; line-height: 1.7; }
+.field { margin-top: 1.5rem; }
+.field label { display: block; margin-bottom: 0.55rem; font-size: 1rem; font-weight: 600; }
+.field input, .field textarea { width: 100%; display: block; border: 1px solid var(--ink); border-radius: 0; background: var(--paper); color: var(--ink); padding: 0.85rem 1rem; font-size: 1rem; line-height: 1.6; }
+.field input { min-height: 52px; }
+.field textarea { min-height: 172px; resize: vertical; }
+.field input:disabled, .field textarea:disabled { color: var(--ink); opacity: 1; cursor: wait; }
+.field input:focus-visible, .field textarea:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+.field [aria-invalid='true'] { border-width: 2px; }
+.limit { margin-top: 0.65rem; font-size: 0.75rem; line-height: 1.7; }
+.error { margin-top: 0.65rem; font-size: 1rem; font-weight: 600; }
+.actions { margin-top: 1.5rem; min-width: 0; }
+.send { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.send:hover { background: var(--paper); color: var(--ink); }
+.send:disabled { opacity: 0.65; }
+.send:disabled:hover { background: var(--ink); color: var(--paper); }
+.status { min-height: 3.4em; margin-top: 1rem; max-width: 60ch; font-size: 1rem; line-height: 1.7; }
+.honeypot { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+@media (max-width: 760px) {
+  .composer { grid-template-columns: 1fr; gap: 3rem; margin-top: 2.5rem; padding-top: 2rem; }
+  .fields h3 { font-size: 2rem; }
+}

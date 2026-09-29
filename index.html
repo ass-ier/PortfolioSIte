@@ -1,10 +1,27 @@
 <!DOCTYPE html>
+<!--
+THESIS: A portrait-led engineering portfolio, not a terminal costume or game.
+OWN-WORLD: Chalk, olive-black, photo-derived orange, oversized Manrope, sharp
+image fields, fine rules, and deliberate circular link controls.
+STORY: Meet Assier, inspect six real projects, understand his career, verify
+credentials, and make direct contact.
+FIRST VIEWPORT: An oversized two-line name on the left; the supplied monochrome
+orange portrait on the right; profession and a work link immediately readable.
+FORM: User-pinned editorial portfolio, with native-scroll sticky project scenes
+and a linear career chapter. No random concept seed; reference direction was
+explicitly approved. Mobile and reduced motion use the same content in flow.
+-->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Assier Anteneh — IT Infrastructure & Cybersecurity Engineer based in Addis Ababa, Ethiopia." />
+    <meta name="theme-color" content="#f3f2ed" />
+    <meta property="og:title" content="Assier Anteneh — Infrastructure, security & code" />
+    <meta property="og:description" content="IT infrastructure and cybersecurity engineer in Addis Ababa. Explore the projects, people, and experience behind the work." />
+    <meta property="og:type" content="website" />
     <title>Assier Anteneh — IT Infrastructure & Cybersecurity Engineer</title>
+    <link rel="preload" href="/fonts/manrope-latin-variable.woff2" as="font" type="font/woff2" crossorigin />
 
     <!-- Favicon set -->
     <link rel="icon" type="image/x-icon"      href="/favicon.ico" />
@@ -15,6 +32,7 @@
     <link rel="manifest" href="/site.webmanifest" />
   </head>
   <body>
+    <noscript>This portfolio needs JavaScript to display its interactive project details. Contact Assier at <a href="mailto:assieranteneh0306@gmail.com">assieranteneh0306@gmail.com</a>.</noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

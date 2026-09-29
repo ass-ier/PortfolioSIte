@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-28T22:50:44.675Z",
+  "title": "Design System: Assier Anteneh",
+  "extensions": {
+    "colorMeta": {
+      "paper": { "role": "neutral", "displayName": "Warm Paper", "tonalRamp": ["oklch(15% 0.01 95)", "oklch(26% 0.01 95)", "oklch(37% 0.01 95)", "oklch(49% 0.01 95)", "oklch(60% 0.01 95)", "oklch(72% 0.01 95)", "oklch(83% 0.01 95)", "oklch(95% 0.01 95)"] },
+      "ink": { "role": "neutral", "displayName": "Olive Ink", "tonalRamp": ["oklch(15% 0.015 120)", "oklch(26% 0.015 120)", "oklch(37% 0.015 120)", "oklch(49% 0.015 120)", "oklch(60% 0.015 120)", "oklch(72% 0.015 120)", "oklch(83% 0.015 120)", "oklch(95% 0.015 120)"] },
+      "muted": { "role": "neutral", "displayName": "Secondary Ink", "tonalRamp": ["oklch(15% 0.015 105)", "oklch(26% 0.015 105)", "oklch(37% 0.015 105)", "oklch(49% 0.015 105)", "oklch(60% 0.015 105)", "oklch(72% 0.015 105)", "oklch(83% 0.015 105)", "oklch(95% 0.015 105)"] },
+      "line": { "role": "neutral", "displayName": "Paper Rule", "tonalRamp": ["oklch(15% 0.015 120)", "oklch(26% 0.015 120)", "oklch(37% 0.015 120)", "oklch(49% 0.015 120)", "oklch(60% 0.015 120)", "oklch(72% 0.015 120)", "oklch(83% 0.015 120)", "oklch(95% 0.015 120)"] },
+      "dark": { "role": "neutral", "displayName": "Olive Black", "tonalRamp": ["oklch(15% 0.02 125)", "oklch(26% 0.02 125)", "oklch(37% 0.02 125)", "oklch(49% 0.02 125)", "oklch(60% 0.02 125)", "oklch(72% 0.02 125)", "oklch(83% 0.02 125)", "oklch(95% 0.02 125)"] },
+      "muted-on-dark": { "role": "neutral", "displayName": "Secondary Light", "tonalRamp": ["oklch(15% 0.015 120)", "oklch(26% 0.015 120)", "oklch(37% 0.015 120)", "oklch(49% 0.015 120)", "oklch(60% 0.015 120)", "oklch(72% 0.015 120)", "oklch(83% 0.015 120)", "oklch(95% 0.015 120)"] },
+      "line-on-dark": { "role": "neutral", "displayName": "Dark Rule", "tonalRamp": ["oklch(15% 0.025 130)", "oklch(26% 0.025 130)", "oklch(37% 0.025 130)", "oklch(49% 0.025 130)", "oklch(60% 0.025 130)", "oklch(72% 0.025 130)", "oklch(83% 0.025 130)", "oklch(95% 0.025 130)"] },
+      "orange": { "role": "primary", "displayName": "Portrait Orange", "tonalRamp": ["oklch(15% 0.08 37)", "oklch(26% 0.08 37)", "oklch(37% 0.08 37)", "oklch(49% 0.08 37)", "oklch(60% 0.08 37)", "oklch(72% 0.08 37)", "oklch(83% 0.08 37)", "oklch(95% 0.08 37)"] },
+      "orange-ink": { "role": "primary", "displayName": "Readable Orange Ink", "tonalRamp": ["oklch(15% 0.07 36)", "oklch(26% 0.07 36)", "oklch(37% 0.07 36)", "oklch(49% 0.07 36)", "oklch(60% 0.07 36)", "oklch(72% 0.07 36)", "oklch(83% 0.07 36)", "oklch(95% 0.07 36)"] },
+      "lavender": { "role": "secondary", "displayName": "CubeGuide Lavender", "tonalRamp": ["oklch(15% 0.035 290)", "oklch(26% 0.035 290)", "oklch(37% 0.035 290)", "oklch(49% 0.035 290)", "oklch(60% 0.035 290)", "oklch(72% 0.035 290)", "oklch(83% 0.035 290)", "oklch(95% 0.035 290)"] },
+      "sage": { "role": "secondary", "displayName": "SentinelFlow Sage", "tonalRamp": ["oklch(15% 0.025 155)", "oklch(26% 0.025 155)", "oklch(37% 0.025 155)", "oklch(49% 0.025 155)", "oklch(60% 0.025 155)", "oklch(72% 0.025 155)", "oklch(83% 0.025 155)", "oklch(95% 0.025 155)"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Portrait Display", "purpose": "Large personal identity, not body text." },
+      "headline": { "displayName": "Chapter Heading", "purpose": "Section hierarchy with balanced wrapping." },
+      "subheading": { "displayName": "Subsection Heading", "purpose": "Credential and contact-form hierarchy; the contact form scales fluidly to 3.4rem on desktop." }
+    },
+    "shadows": [
+      { "name": "application-capture", "value": "0 22px 38px rgb(25 30 30 / 18%)", "purpose": "Separate real application imagery from the colored project field." }
+    ],
+    "motion": [
+      { "name": "ease-out", "value": "cubic-bezier(0.22, 1, 0.36, 1)", "purpose": "Small interactive state changes." },
+      { "name": "duration", "value": "240ms", "purpose": "Default state transition duration; disabled for reduced motion." },
+      { "name": "preview-reveal", "value": "320ms–360ms", "purpose": "Directional masks preserve continuity when the project or career preview changes." },
+      { "name": "pointer-depth", "value": "stiffness: 180; damping: 26; mass: 0.65", "purpose": "Fine-pointer-only image-plane tilt, bounded to five or seven degrees and disabled for reduced motion." },
+      { "name": "image-reflection", "value": "700ms", "purpose": "One-shot hover/focus feedback on featured captures; never loops." },
+      { "name": "email-handoff", "value": "1100ms cipher/seal, 1200ms geometric transit", "purpose": "A full-viewport native-dialog scene transforms authored text into masked cipher strips and a locked, faceted parcel moving through seven gates. Receipt is gated on server-side mail-provider acceptance. Dismissal preserves an active request; failure stays an error. Static reduced motion never skips the response. Not real end-to-end encryption or confirmed inbox delivery." },
+      { "name": "hero-portrait-arrival", "value": "1050ms, scale 1.12 to 1", "purpose": "An image-ready zoom-out that replays on viewport re-entry, separate from the hero's scroll transform and immediate under reduced motion." },
+      { "name": "hero-scroll-depth", "value": "scale 1 to 0.9; rotate 0 to -4deg; drift 0 to 72px", "purpose": "Reversible native-scroll portrait depth after loading; mobile bounds are 0.92, -3deg, and 36px. Static under reduced motion." },
+      { "name": "about-portrait-arrival", "value": "850ms, each entry at 20% visibility", "purpose": "The real cutout lifts 36px, straightens from -2.5 degrees, and settles from scale 0.94; waits for its image, re-arms only fully offscreen, and respects live reduced motion." },
+      { "name": "statement-travel", "value": "measured horizontal overflow", "purpose": "Native scroll reveals the complete about statement in the middle of the viewport, clear of the fixed header; static wrapping under reduced motion." },
+      { "name": "metric-count", "value": "1500ms, each viewport re-entry", "purpose": "Count the four original figures from zero, resetting only fully offscreen without layout shifts or repeated screen-reader announcements; immediate final values under reduced motion." }
+    ],
+    "breakpoints": [
+      { "name": "single-column-skills", "value": "360px" },
+      { "name": "mobile", "value": "760px" },
+      { "name": "compact-grid", "value": "1000px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Outlined Action",
+      "kind": "button",
+      "refersTo": "action",
+      "description": "The canonical rounded text action.",
+      "html": "<button class=\"ds-action\">Explore project <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\"><path d=\"M5 19 19 5M5 5h14v14\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg></button>",
+      "css": ".ds-action{display:inline-flex;align-items:center;gap:2rem;min-height:54px;padding:.8rem 1.3rem;border:1px solid currentColor;border-radius:100px;background:transparent;color:var(--ink,#242620);font-family:var(--font-body,Arial,sans-serif);font-size:.9rem;cursor:pointer}.ds-action:hover{background:var(--ink,#242620);color:var(--paper,#f3f2ed)}.ds-action:focus-visible{outline:2px solid currentColor;outline-offset:6px}"
+    },
+    {
+      "name": "Text Link",
+      "kind": "button",
+      "description": "A persistent underlined secondary navigation action.",
+      "html": "<a class=\"ds-text-link\" href=\"#experience\">The story so far <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\"><path d=\"M5 19 19 5M5 5h14v14\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg></a>",
+      "css": ".ds-text-link{display:inline-flex;align-items:center;gap:.8rem;min-height:44px;padding:.5rem 0;border-bottom:1px solid currentColor;text-decoration:none;color:var(--ink,#242620);font-family:var(--font-body,Arial,sans-serif);font-size:.9rem;font-weight:600}.ds-text-link:hover{color:var(--orange-ink,#aa3518)}.ds-text-link:focus-visible{outline:2px solid currentColor;outline-offset:6px}"
+    },
+    {
+      "name": "Circular Icon Action",
+      "kind": "button",
+      "refersTo": "icon-action",
+      "description": "Compact close or directional action with an accessible name.",
+      "html": "<button class=\"ds-icon-action\" aria-label=\"Close\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\"><path d=\"m6 6 12 12M6 18 18 6\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg></button>",
+      "css": ".ds-icon-action{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border:1px solid currentColor;border-radius:50%;background:transparent;color:var(--ink,#242620);cursor:pointer}.ds-icon-action:hover{background:var(--ink,#242620);color:var(--paper,#f3f2ed)}.ds-icon-action:focus-visible{outline:2px solid currentColor;outline-offset:6px}"
+    },
+    {
+      "name": "Project Status",
+      "kind": "custom",
+      "description": "Readable deployment status; the dot is supplementary.",
+      "html": "<div class=\"ds-status-field\"><p class=\"ds-status\"><span aria-hidden=\"true\"></span>Local project · Not deployed</p></div>",
+      "css": ".ds-status-field{padding:1.5rem;background:var(--dark,#242720);color:var(--paper,#f3f2ed)}.ds-status{display:flex;align-items:center;gap:.55rem;font:400 .75rem/1.65 var(--font-body,Arial,sans-serif);margin:0}.ds-status span{width:5px;height:5px;border-radius:50%;background:var(--orange,#ef653f)}"
+    },
+    {
+      "name": "Career Disclosure",
+      "kind": "custom",
+      "description": "Native, keyboard-operable access to full role responsibilities.",
+      "html": "<details class=\"ds-career\"><summary>Role details</summary><p>Responsibilities and skills remain available in the document.</p></details>",
+      "css": ".ds-career{max-width:32rem;color:var(--ink,#242620);font-family:var(--font-body,Arial,sans-serif)}.ds-career summary{min-height:48px;display:list-item;align-content:center;font-size:.85rem;cursor:pointer}.ds-career summary:hover{color:var(--orange-ink,#aa3518)}.ds-career summary:focus-visible{outline:2px solid currentColor;outline-offset:6px}.ds-career p{font-size:.85rem;line-height:1.9;color:var(--muted,#65665d)}"
+    },
+    {
+      "name": "Primary Navigation",
+      "kind": "nav",
+      "description": "Direct anchors rather than route-like simulated interfaces.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Example primary navigation\"><a href=\"#projects\">Work</a><a href=\"#about\">About</a><a href=\"#experience\">Experience</a><a href=\"#contact\">Contact</a></nav>",
+      "css": ".ds-nav{display:flex;flex-wrap:wrap;gap:1.5rem;background:var(--paper,#f3f2ed);padding:1rem;color:var(--ink,#242620)}.ds-nav a{position:relative;display:inline-flex;align-items:center;min-height:44px;text-decoration:none;font:600 .8rem var(--font-body,Arial,sans-serif)}.ds-nav a:hover{color:var(--orange-ink,#aa3518)}.ds-nav a:focus-visible{outline:2px solid currentColor;outline-offset:6px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Human systems",
+    "overview": "An editorial portfolio led by Assier's actual portraits and work. Oversized, open grotesque typography meets warm paper, olive-black project chapters, and an orange close. The interface is expressive without impersonating a terminal, security dashboard, or game.\n\nThe selected creative-developer reference sets an interaction-craft ambition, not a template to reproduce. Real photographs and application captures carry the visual proof; normal navigation and readable content remain the foundation.",
+    "keyCharacteristics": [
+      "Portrait-led composition and oversized, medium-weight type.",
+      "Sharp image fields, fine separators, and outlined circular or pill actions.",
+      "Native-scroll movement with a complete static reduced-motion alternative.",
+      "Clear project provenance, deployment status, and direct contact."
+    ],
+    "rules": [
+      { "name": "The Evidence Rule", "body": "Project status is text, not color alone. A local project never inherits a live-demo affordance.", "section": "colors" }
+    ],
+    "dos": [
+      "Do use the real portraits and verified project captures.",
+      "Do preserve source dates, metrics, links, and explicit deployment status.",
+      "Do keep content and controls visible before animation runs.",
+      "Do retain the static mobile and reduced-motion reading paths."
+    ],
+    "donts": [
+      "Don't introduce fake live links, resume files, availability, or testimonials.",
+      "Don't replace the portfolio with a dashboard, game, or repeated icon-card grid.",
+      "Don't animate layout dimensions or make essential information hover-only."
+    ]
+  }
+}

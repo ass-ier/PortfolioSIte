@@ -1,97 +1,37 @@
-.about { background: var(--color-bg-subtle); }
+.about { padding-bottom: 0; overflow: clip; }
+.grid { display: grid; grid-template-columns: 1fr 1.15fr; align-items: start; gap: clamp(3rem, 8vw, 9rem); }
+.portrait { margin: 0; padding-top: 0.7rem; mix-blend-mode: multiply; }
+.portrait figcaption { display: flex; justify-content: space-between; gap: 1rem; color: var(--muted); font-size: 0.65rem; margin-top: 1rem; }
+.copy h2 { font-size: clamp(2.5rem, 5.3vw, 5.5rem); margin-bottom: 2.2rem; }
+.copy h2 > span { color: var(--orange-ink); }
+.copy > p { max-width: 65ch; font-size: 0.88rem; color: var(--muted); margin-bottom: 1.3rem; line-height: 1.9; }
+.copy > .lead { color: var(--ink); font-size: clamp(1.1rem, 1.65vw, 1.45rem); line-height: 1.6; letter-spacing: -0.02em; }
+.copy > a { margin-top: 0.25rem; }
+.education { display: grid; grid-template-columns: 1fr 2fr; border-top: 1px solid var(--line); gap: 1rem; padding-top: 1.5rem; margin-top: 2.5rem; font-size: 0.8rem; }
+.education > span { color: var(--muted); font-size: 0.7rem; }
+.education p > span { font-size: 0.7rem; color: var(--muted); }
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); padding: 3rem 0 0; margin: 4.5rem 0 0; border-top: 1px solid var(--line); }
+.stats > div { display: flex; flex-direction: column-reverse; gap: 0.5rem; }
+.stats dt { font-size: 0.73rem; color: var(--muted); }
+.stats dd { margin: 0; font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1.2; letter-spacing: -0.04em; font-variant-numeric: tabular-nums; }
+.typeTrack { position: relative; padding-block: clamp(3rem, 7vw, 7rem); overflow: clip; }
+.typeTrack p { width: max-content; padding-inline: var(--gutter); font-size: clamp(2rem, 7.6vw, 8rem); white-space: nowrap; letter-spacing: -0.04em; line-height: 1.2; color: var(--orange-ink); }
 
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--size-16);
-  align-items: start;
+@media (max-width: 1000px) {
+  .grid { gap: 3rem; }
+  .portrait { padding-top: 0; }
 }
-
-.textSide { display: flex; flex-direction: column; }
-
-.heading { margin-bottom: var(--size-6); }
-
-.body {
-  color: var(--color-text-secondary);
-  font-size: 0.98rem;
-  margin-bottom: var(--size-4);
-  line-height: 1.8;
+@media (max-width: 760px) {
+  .grid { display: flex; flex-direction: column; gap: 2.5rem; }
+  .portrait { width: 85%; }
+  .portrait figcaption { flex-direction: column; gap: 0.3rem; }
+  .copy h2 { font-size: clamp(2.5rem, 11vw, 4.5rem); }
+  .copy > .lead { font-size: 1.2rem; }
+  .education { margin-top: 2rem; }
+  .stats { grid-template-columns: repeat(2, 1fr); gap: 2.5rem 1rem; margin-top: 3rem; padding-top: 2rem; }
+  .stats dd { font-size: 2.7rem; }
+  .typeTrack p { font-size: 7.5vw; }
 }
-
-.statsRow {
-  display: flex;
-  gap: var(--size-8);
-  margin-top: var(--size-8);
-  flex-wrap: wrap;
-}
-
-.stat { display: flex; flex-direction: column; gap: var(--size-1); }
-
-.statNum {
-  font-family: var(--font-display);
-  font-size: 2.6rem;
-  font-weight: 800;
-  line-height: 1;
-  /* semantic → component chain */
-  color: var(--color-text-brand);
-}
-
-.statLabel {
-  font-size: 0.75rem;
-  color: var(--color-text-tertiary);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
-
-.cardSide { position: relative; }
-
-.card {
-  padding: var(--size-6);
-  display: flex;
-  flex-direction: column;
-  gap: var(--size-5);
-}
-
-.cardRow {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--size-4);
-}
-
-.cardIcon {
-  font-size: 1.3rem;
-  flex-shrink: 0;
-  padding-top: 2px;
-  width: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-text-brand);
-}
-
-.cardTitle {
-  font-weight: 600;
-  font-size: 0.92rem;
-  color: var(--color-text-primary);
-  margin-bottom: 2px;
-}
-
-.cardSub {
-  font-size: 0.78rem;
-  color: var(--color-text-tertiary);
-}
-
-.accentBar {
-  position: absolute;
-  top: var(--size-6);
-  right: -1px;
-  width: 3px;
-  height: 60px;
-  border-radius: var(--radius-full);
-  background: linear-gradient(to bottom, var(--color-interactive-brand), var(--color-accent));
-}
-
-@media (max-width: 860px) {
-  .grid { grid-template-columns: 1fr; gap: var(--size-10); }
-  .statsRow { gap: var(--size-6); }
+@media (prefers-reduced-motion: reduce) {
+  .typeTrack p { width: auto; white-space: normal; text-wrap: balance; text-align: center; transform: none !important; }
 }

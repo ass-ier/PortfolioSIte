@@ -1,14 +1,13 @@
+import Arrow from './Arrow';
 import styles from './Footer.module.css';
 
 export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={`container ${styles.inner}`}>
-        <p className={styles.copy}>
-          Designed &amp; built by{' '}
-          <span className={styles.name}>Assier Anteneh</span> · 2026
-        </p>
-        <p className={styles.sub}>Addis Ababa, Ethiopia</p>
+        <p>Assier Anteneh <span>&copy; {new Date().getFullYear()}</span></p>
+        <p className={styles.location}>Addis Ababa, Ethiopia</p>
+        <a href="#hero">Back to top <Arrow /></a>
       </div>
     </footer>
   );
