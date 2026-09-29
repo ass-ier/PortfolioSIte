@@ -24,6 +24,9 @@ specified; implementation proceeds autonomously as requested.
 - React 19, Vite 8, and the existing Framer Motion dependency.
 - `src/data/resume.js` is authoritative for the existing four projects, experience,
   skills, certifications, awards, dates, metrics, and verification links.
+- Education includes the BSc in Software Engineering from HiLCoE (2021-2025)
+  and the MSc in Computer Science currently being pursued at Addis Ababa
+  University (2026-2029, expected), with a specialization in Network and Security.
 - Preserve all existing projects and add CubeGuide and SentinelFlow prominently.
 - CubeGuide is hosted at `https://cubeguide-phi.vercel.app/`.
 - SentinelFlow is hosted at `https://sentinel-flow-fawn.vercel.app/`. Preserve its

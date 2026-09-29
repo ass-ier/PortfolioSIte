@@ -9,6 +9,7 @@
 .copy > a { margin-top: 0.25rem; }
 .education { display: grid; grid-template-columns: 1fr 2fr; border-top: 1px solid var(--line); gap: 1rem; padding-top: 1.5rem; margin-top: 2.5rem; font-size: 0.8rem; }
 .education > span { color: var(--muted); font-size: 0.7rem; }
+.education p + p { margin-top: 1rem; }
 .education p > span { font-size: 0.7rem; color: var(--muted); }
 .stats { display: grid; grid-template-columns: repeat(4, 1fr); padding: 3rem 0 0; margin: 4.5rem 0 0; border-top: 1px solid var(--line); }
 .stats > div { display: flex; flex-direction: column-reverse; gap: 0.5rem; }
@@ -25,9 +26,10 @@
   .grid { display: flex; flex-direction: column; gap: 2.5rem; }
   .portrait { width: 85%; }
   .portrait figcaption { flex-direction: column; gap: 0.3rem; }
+  .copy { width: 100%; }
   .copy h2 { font-size: clamp(2.5rem, 11vw, 4.5rem); }
   .copy > .lead { font-size: 1.2rem; }
-  .education { margin-top: 2rem; }
+  .education { grid-template-columns: 1fr; margin-top: 2rem; }
   .stats { grid-template-columns: repeat(2, 1fr); gap: 2.5rem 1rem; margin-top: 3rem; padding-top: 2rem; }
   .stats dd { font-size: 2.7rem; }
   .typeTrack p { font-size: 7.5vw; }
