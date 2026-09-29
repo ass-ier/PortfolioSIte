@@ -41,7 +41,9 @@ specified; implementation proceeds autonomously as requested.
 - Real contact details sit beside the form, with new-tab GitHub/LinkedIn icon
   links. Sending triggers a creative full-page security-inspired scene instead
   of an inline envelope illustration. The scene must remain dismissible,
-  keyboard-accessible, and static under reduced motion.
+  keyboard-accessible, and static under reduced motion. After a successful
+  receipt it automatically closes with an exit transition; the form retains
+  the confirmation. Pending requests and errors must never auto-dismiss.
 - No invented achievements, availability statements, project dates, or resume file.
 - Native scrolling and functional project detail, navigation, and copy controls.
 - Work is limited to this isolated worktree. No deployment, push, or commit.

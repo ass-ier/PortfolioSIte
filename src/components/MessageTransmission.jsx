@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion as Motion } from 'framer-motion';
 import Arrow from './Arrow';
 import Dialog from './Dialog';
@@ -113,17 +113,39 @@ function TransmissionArtwork({ phase, reducedMotion, compact }) {
 export default function MessageTransmission({ phase, attempt, feedback, reducedMotion, onDismiss, onRetry }) {
   const compact = useMediaQuery('(max-width: 760px)');
   const close = useRef(null);
+  const [leaving, setLeaving] = useState(false);
   const complete = phase === 'ready';
   const failed = phase === 'error';
   const description = failed ? feedback : complete
-    ? 'The mail service accepted your message for Assier. Thank you for getting in touch.'
+    ? 'The mail service accepted your message. Returning to the form shortly.'
     : phase === 'waiting'
       ? 'The visual journey is complete. Waiting for the mail service to accept your message.'
       : 'Your message is being submitted. The receipt appears only after the mail service accepts it.';
 
+  useEffect(() => {
+    if (!complete) return;
+    const timer = setTimeout(() => setLeaving(true), 1600);
+    return () => clearTimeout(timer);
+  }, [complete, attempt]);
+
+  useEffect(() => {
+    if (!leaving) return;
+    // Finish even if a hidden tab pauses the animation's frames.
+    const timer = setTimeout(onDismiss, reducedMotion ? 0 : 650);
+    return () => clearTimeout(timer);
+  }, [leaving, reducedMotion, onDismiss]);
+
   return (
-    <Dialog id="message-transmission" labelledBy="transmission-heading" className={styles.overlay} onDismiss={onDismiss}>
-      <div className={styles.scene} data-transmission-phase={phase}>
+    <Dialog id="message-transmission" labelledBy="transmission-heading" className={`${styles.overlay} ${leaving ? styles.leaving : ''}`} onDismiss={onDismiss}>
+      <Motion.div
+        className={styles.scene}
+        data-transmission-phase={phase}
+        data-send-closing={leaving}
+        initial={false}
+        animate={leaving ? { clipPath: ['inset(0% 0% 0% 0%)', 'inset(0% 0% 100% 0%)'], y: -24 } : { clipPath: 'none', y: 0 }}
+        transition={{ duration: reducedMotion ? 0 : 0.55, ease: [0.22, 1, 0.36, 1] }}
+        onAnimationComplete={() => { if (leaving) onDismiss(); }}
+      >
         <header className={styles.bar}>
           <span>Assier Anteneh</span>
           <button ref={close} className={styles.close} type="button" onClick={onDismiss} aria-label="Close send animation">
@@ -144,7 +166,7 @@ export default function MessageTransmission({ phase, attempt, feedback, reducedM
           </div>
         </div>
         <p className={styles.disclosure}>Security-inspired visualization, not end-to-end encryption.{complete ? ' Inbox delivery is not tracked.' : !failed ? ' Closing this view does not cancel sending.' : ''}</p>
-      </div>
+      </Motion.div>
     </Dialog>
   );
 }

@@ -71,8 +71,10 @@ offer retry. Server-controlled recipient/From and private credentials keep the
 visitor address restricted to Reply-To. The lock is illustrative, not
 end-to-end encryption or confirmed inbox delivery. Reduced motion still waits
 for the response. Escape/Close restores form focus and scrolling without
-cancelling an active request. Private provider configuration is required for
-real sending.
+cancelling an active request. Successful receipts pause briefly, then the full
+view lifts away automatically; confirmation persists in the form. Errors and
+pending sends do not auto-dismiss, and reduced motion skips the exit movement.
+Private provider configuration is required for real sending.
 
 ## Remaining decisions
 

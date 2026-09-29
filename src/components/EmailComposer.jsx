@@ -15,6 +15,7 @@ export default function EmailComposer({ children }) {
   const [transmissionOpen, setTransmissionOpen] = useState(false);
   const composer = useRef(null);
   const submitButton = useRef(null);
+  const returnFocus = useRef(null);
   const emailInput = useRef(null);
   const subjectInput = useRef(null);
   const messageInput = useRef(null);
@@ -26,6 +27,12 @@ export default function EmailComposer({ children }) {
   const phase = status === 'error' ? 'error' : succeeded ? 'ready' : animationStep;
 
   useEffect(() => () => activeRequest.current?.abort('unmounted'), []);
+
+  useEffect(() => {
+    // Restore focus after the dismissed dialog's passive cleanup has run.
+    if (!transmissionOpen) returnFocus.current?.focus({ preventScroll: true });
+    returnFocus.current = null;
+  }, [transmissionOpen]);
 
   useEffect(() => {
     if (animationStep !== 'sealing' && animationStep !== 'flying') return;
@@ -114,10 +121,8 @@ export default function EmailComposer({ children }) {
   }
 
   function closeTransmission() {
+    returnFocus.current = busy ? composer.current : submitButton.current;
     setTransmissionOpen(false);
-    requestAnimationFrame(() => {
-      (busy ? composer.current : submitButton.current)?.focus({ preventScroll: true });
-    });
   }
 
   return (

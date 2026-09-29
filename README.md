@@ -170,10 +170,15 @@ project evidence with invented metrics, deployment status, or availability.
   cipher-like strips, folds into a locked parcel, and travels through seven
   expanding geometric gates. The 1,100ms transformation and 1,200ms transit are
   finite; the final receipt still waits for actual provider acceptance. A failed
-  request shows an honest error, never a delivery animation. Escape or Close
+  request shows an honest error, never a delivery animation. After success, the
+  receipt pauses for 1,600ms, then the full-screen view lifts and retracts over
+  550ms while its backdrop fades, automatically returning to the form. The
+  inline confirmation remains available; errors never auto-dismiss.
+  Escape or Close
   returns to the form with focus and scrolling restored; closing the visual does
-  not cancel an active request. Reduced motion uses static states but still
-  waits for the server. No visitor text is displayed in the artwork, and the
+  not cancel an active request. Reduced motion uses static states and an
+  immediate exit after the same success pause, but still waits for the server.
+  No visitor text is displayed in the artwork, and the
   scene explicitly distinguishes its security metaphor from real encryption.
 
 ## Local assets and design

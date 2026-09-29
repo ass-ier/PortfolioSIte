@@ -306,10 +306,14 @@ application text step. No visitor text is passed into the drawing.
 The scene stops moving while waiting for a slow server. Errors remain errors
 with retry and preserved form values. Escape and Close restore focus and
 scrolling without cancelling a request already in flight. A completed scene
-restores the form action; closing during a request focuses the form region.
+holds its receipt for 1,600ms, then automatically returns through a 550ms
+upward lift and bottom-to-top mask retraction while the backdrop fades.
+Focus returns to the form action and its success message remains visible.
+Errors do not auto-dismiss, and manual dismissal cancels pending exit timers.
+Closing during a request focuses the form region.
 The lock is explicitly illustrative, not end-to-end encryption or confirmed
-inbox delivery. Reduced motion skips the choreography but never skips the
-server response. The backdrop fills the viewport on both desktop and mobile;
+inbox delivery. Reduced motion skips the choreography and exit movement, not
+the success pause or the server response. The backdrop fills the viewport on both desktop and mobile;
 short screens can scroll within the dialog rather than cropping its controls.
 
 ### Motion
