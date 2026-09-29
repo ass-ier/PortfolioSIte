@@ -75,7 +75,7 @@ test('every project preview uses a real capture or an explicitly labeled concept
 
 test('career, skills, and original metrics stay complete', () => {
   assert.deepEqual(experience.map(({ company, role, period }) => [company, role, period]), [
-    ['MMCY', 'IT Support Team Lead', 'Apr 2026 – Present'],
+    ['MMCY', 'IT Team Lead', 'Apr 2026 – Present'],
     ['MMCY', 'IT Support Specialist', 'Oct 2025 – Apr 2026'],
     ['Droga Consulting', 'UI/UX Designer / Frontend Engineer', 'Jun 2025 – Oct 2025'],
     ['FDRE Ministry of Mines', 'Junior Developer', 'Feb 2022 – Jun 2022'],

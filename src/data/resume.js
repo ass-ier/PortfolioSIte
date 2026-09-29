@@ -1,7 +1,7 @@
 export const experience = [
   {
     id: 'mmcy-lead',
-    role: 'IT Support Team Lead',
+    role: 'IT Team Lead',
     company: 'MMCY',
     period: 'Apr 2026 – Present',
     type: 'current',

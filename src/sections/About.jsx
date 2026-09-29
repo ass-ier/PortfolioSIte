@@ -85,7 +85,7 @@ export default function About() {
             <h2 id="about-heading" className="section-title">Good systems<br />start with<br /><span>people.</span></h2>
             <p className={styles.lead}>I&apos;m Assier. I work where infrastructure, security, and the everyday experience of technology meet.</p>
             <p>I&apos;m an IT Infrastructure and Cybersecurity Engineer with a BSc in Software Engineering from HiLCoE. I&apos;m currently pursuing an MSc in Computer Science at Addis Ababa University, specializing in Network and Security. My work spans Microsoft cloud environments, identity and access management, security operations, and network infrastructure.</p>
-            <p>As IT Support Team Lead at MMCY, I oversee IT support, security monitoring, incident response, and cloud governance. My path also includes frontend engineering and UI/UX design &mdash; a perspective I bring to the systems I build and support.</p>
+            <p>As IT Team Lead at MMCY, I oversee IT support, security monitoring, incident response, and cloud governance. My path also includes frontend engineering and UI/UX design &mdash; a perspective I bring to the systems I build and support.</p>
             <a className="text-link" href="#experience">The story so far <Arrow /></a>
             <div className={styles.education}>
               <span>Education</span>
