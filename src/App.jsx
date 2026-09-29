@@ -1,4 +1,5 @@
 import { MotionConfig } from 'framer-motion';
+import { Analytics } from '@vercel/analytics/react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Hero from './sections/Hero';
@@ -22,6 +23,7 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
+      {import.meta.env.PROD && <Analytics mode="production" />}
     </MotionConfig>
   );
 }

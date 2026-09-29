@@ -26,7 +26,11 @@ specified; implementation proceeds autonomously as requested.
   skills, certifications, awards, dates, metrics, and verification links.
 - Preserve all existing projects and add CubeGuide and SentinelFlow prominently.
 - CubeGuide is hosted at `https://cubeguide-phi.vercel.app/`.
-- SentinelFlow is not deployed; never imply a live service or invent a demo URL.
+- SentinelFlow is hosted at `https://sentinel-flow-fawn.vercel.app/`. Preserve its
+  portfolio-project scope, synthetic screenshot context, and not-a-production-SIEM
+  disclosure; do not invent a public repository or project dates.
+- Vercel Web Analytics is enabled in production builds using its React
+  integration. Contact form values are not supplied as analytics events.
 - Preserve the supplied email, telephone, GitHub, and LinkedIn contacts.
 - The requested email composer sends email, subject, and message fields from
   within the website, without prompting the visitor to open an email app.

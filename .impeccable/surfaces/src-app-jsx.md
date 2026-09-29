@@ -21,9 +21,11 @@ credentials, and make direct contact.
 
 The two supplied portraits, real CubeGuide and SentinelFlow application
 captures, the source resume, exact credential links, and direct contact data
-are the evidence. SentinelFlow remains local/not deployed and its screenshots
-are explicitly synthetic demo data. Native scrolling, keyboard access, mobile
-reflow, and reduced motion are required.
+are the evidence. SentinelFlow's supplied live destination is
+`https://sentinel-flow-fawn.vercel.app/`; its saved screenshots remain explicitly
+synthetic development captures, not employer telemetry. It is not a production
+SIEM. Native scrolling, keyboard access, mobile reflow, and reduced motion are
+required.
 
 ## Selected direction and memorable moment
 
@@ -74,5 +76,5 @@ real sending.
 
 ## Remaining decisions
 
-No blocking design decisions remain. No deployment, resume download, or public
-SentinelFlow destination is authorized or implied.
+No blocking design decisions remain. No portfolio deployment, resume download,
+or unverified project destination is authorized or implied.

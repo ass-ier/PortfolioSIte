@@ -73,6 +73,23 @@ accepts the request. Acceptance is not confirmed inbox delivery. The lock is a
 security-inspired illustration, not end-to-end encryption; no recipient
 encryption key or delivery webhook is configured.
 
+## Vercel Web Analytics
+
+`src/App.jsx` mounts the official `@vercel/analytics/react` component once in
+production builds. This is the React/Vite integration, not the Next.js import.
+Local `npm run dev` sessions do not load analytics or send test visits.
+
+Enable Web Analytics for the portfolio project in Vercel's Analytics dashboard
+if it is not already enabled, then deploy this updated source. Vercel provides
+the analytics script and collection endpoints on the deployment; no API key or
+extra environment variable is required. Visit the deployed site to begin
+collecting visitor and page-view statistics. A standalone local production
+preview cannot provide Vercel's collection service.
+
+Only the standard page-view integration is enabled. No custom events, email
+addresses, subjects, or message bodies are passed to the analytics component.
+See the [official setup guide](https://vercel.com/docs/analytics/quickstart).
+
 ## Content
 
 `src/data/resume.js` is the content source for projects, career history, skills,
@@ -85,10 +102,10 @@ SentinelFlow have featured, native-scroll project scenes:
 - **CubeGuide:** [live application](https://cubeguide-phi.vercel.app/) and
   [source](https://github.com/ass-ier/CubeGuide). Its screenshot shows a practice
   scramble and the verified solution interface, not an uploaded physical cube.
-- **SentinelFlow:** a local detection-engineering portfolio application, **not
-  deployed** and **not a production SIEM**. Its captures contain synthetic
-  demonstration data, not employer telemetry. No public repository or demo URL
-  is supplied or invented.
+- **SentinelFlow:** [live application](https://sentinel-flow-fawn.vercel.app/),
+  a detection-engineering portfolio application, **not a production SIEM**.
+  Its saved development captures contain synthetic demonstration data, not
+  employer telemetry. No public repository URL is supplied or invented.
 - **Original projects:** ML Optimized Traffic Control, Disease Prediction, Math
   Genius AI, and Automated Answer Sheet Grading retain the original descriptions,
   highlights, dates, metrics, and external link behavior.

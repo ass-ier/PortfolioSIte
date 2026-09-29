@@ -88,7 +88,7 @@ function ProjectDetails({ project, onClose }) {
                 View source <Arrow /><span className="visually-hidden"> (opens in a new tab)</span>
               </a>
             )}
-            {project.id === 'sentinelflow' && <p className={styles.localNotice}>Local portfolio project. Not publicly deployed. Not a production SIEM.</p>}
+            {project.id === 'sentinelflow' && <p className={styles.localNotice}>Security analytics portfolio project. Not a production SIEM.</p>}
           </div>
         </div>
       </div>
@@ -139,7 +139,7 @@ function ProjectScene({ project, onOpen }) {
               </Motion.div>
             </Motion.div>
             <span className={styles.visualFooter}>
-              <span>{project.id === 'cubeguide' ? 'On-device by design' : 'Local detection engineering'}</span>
+              <span>{project.id === 'cubeguide' ? 'On-device by design' : 'Detection engineering'}</span>
               <span className={styles.visualAction}><span className={styles.visualHint} aria-hidden="true">Open project</span><span className={styles.visualArrow}><Arrow /></span></span>
             </span>
           </button>

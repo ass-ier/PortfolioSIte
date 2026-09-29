@@ -23,12 +23,14 @@ test('CubeGuide has its verified live and source destinations', () => {
   assert.ok(cube.highlights.some((text) => text.includes('stay on-device')));
 });
 
-test('SentinelFlow is explicitly local with no invented public destination or date', () => {
+test('SentinelFlow uses its live deployment without inventing a repository or project date', () => {
   const sentinel = projects.find(({ id }) => id === 'sentinelflow');
-  assert.equal(sentinel.link, null);
+  assert.equal(sentinel.link, 'https://sentinel-flow-fawn.vercel.app/');
+  assert.equal(sentinel.linkLabel, 'Open SentinelFlow');
   assert.equal(sentinel.repository, undefined);
   assert.equal(sentinel.period, undefined);
-  assert.match(sentinel.status, /Not deployed/);
+  assert.equal(sentinel.status, 'Live web app');
+  assert.doesNotMatch(sentinel.description, /not (?:publicly )?deployed/i);
   assert.match(sentinel.description, /not a production SIEM/);
   assert.match(sentinel.caption, /Synthetic demonstration data/);
   assert.ok(sentinel.showcase);
