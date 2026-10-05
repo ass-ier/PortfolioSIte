@@ -27,18 +27,25 @@ specified; implementation proceeds autonomously as requested.
 - Education includes the BSc in Software Engineering from HiLCoE (2021-2025)
   and the MSc in Computer Science currently being pursued at Addis Ababa
   University (2026-2029, expected), with a specialization in Network and Security.
-- Preserve all seven projects. Show only ReverseScope and SentinelFlow initially;
-  an Explore more projects button reveals CubeGuide, ML Optimized Traffic
+- Preserve all eight projects. Show PacketScope, ReverseScope, and SentinelFlow
+  initially, in that order. An Explore more projects button reveals CubeGuide, ML Optimized Traffic
   Control, Disease Prediction, Math Genius AI, and Automated Answer Sheet Grading
   with the same scene layout and full detail access.
+- PacketScope is a local-first PCAP/PCAPNG network-forensics platform with a
+  read-only synthetic demo at `https://packetscope-mo14.onrender.com/` and source
+  at `https://github.com/ass-ier/PacketScope`. Preserve the user-supplied live URL,
+  synthetic screenshot provenance, and distinction between findings and verdicts.
 - ReverseScope is a local-first Windows PE static-analysis workstation. Its
   supplied development capture uses synthetic test fixtures. Binaries are never
   executed; static evidence does not establish runtime behavior or a definitive
-  malware verdict. Do not invent a hosted demo, public repository, or dates.
+  malware verdict. Its read-only synthetic demo is at
+  `https://frontend-lilac-nu-29.vercel.app/`, with source at
+  `https://github.com/ass-ier/ReverseScope`. Do not invent project dates.
 - CubeGuide is hosted at `https://cubeguide-phi.vercel.app/`.
 - SentinelFlow is hosted at `https://sentinel-flow-fawn.vercel.app/`. Preserve its
   portfolio-project scope, synthetic screenshot context, and not-a-production-SIEM
-  disclosure; do not invent a public repository or project dates.
+  disclosure. Its source is `https://github.com/ass-ier/SentinelFlow`;
+  do not invent project dates.
 - Vercel Web Analytics is enabled in production builds using its React
   integration. Contact form values are not supplied as analytics events.
 - Preserve the supplied email, telephone, GitHub, and LinkedIn contacts.
@@ -77,6 +84,9 @@ must not be copied.
 - ReverseScope's existing dedicated-worktree documentation and synthetic
   acceptance screenshot establish its scope and visual evidence. The portfolio
   reuses an optimized copy without running ReverseScope or handling binaries.
+- The supplied PacketScope repository's README, deployment guide, and synthetic
+  dashboard screenshot establish its scope and visual evidence. Its source
+  code is not run, and no packet captures are uploaded for the portfolio.
 - No downloadable resume was supplied.
 
 ## Product Principles

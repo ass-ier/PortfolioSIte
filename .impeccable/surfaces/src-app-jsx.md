@@ -14,20 +14,23 @@ exploration, not a simulated operating system.
 ## Audience, job, and action
 
 Prospective employers, collaborators, and peers should understand Assier's
-practice, inspect seven substantive projects and the career behind them, verify
+practice, inspect eight substantive projects and the career behind them, verify
 credentials, and make direct contact.
 
 ## Proof and constraints
 
-The two supplied portraits, real ReverseScope, CubeGuide, and SentinelFlow application
-captures, the source resume, exact credential links, and direct contact data
-are the evidence. SentinelFlow's supplied live destination is
+The two supplied portraits, real PacketScope, ReverseScope, CubeGuide, and
+SentinelFlow application captures, the source resume, exact credential links,
+and direct contact data are the evidence. PacketScope's repository screenshot
+uses synthetic packet captures; its read-only demo is at
+`https://packetscope-mo14.onrender.com/`. SentinelFlow's supplied live destination is
 `https://sentinel-flow-fawn.vercel.app/`; its saved screenshots remain explicitly
 synthetic development captures, not employer telemetry. It is not a production
 SIEM. ReverseScope is a local-first static-analysis workstation, illustrated by
-its existing synthetic acceptance capture; it never executes uploaded binaries
-and has no supplied hosted demo. Native scrolling, keyboard access, mobile reflow,
-and reduced motion are required.
+its existing synthetic acceptance capture; it never executes uploaded binaries.
+Its read-only synthetic demo is at `https://frontend-lilac-nu-29.vercel.app/`.
+All three initial projects link to their user-supplied GitHub repositories.
+Native scrolling, keyboard access, mobile reflow, and reduced motion are required.
 
 ## Selected direction and memorable moment
 
@@ -45,7 +48,7 @@ One matching a with three dots supplies the favicon and touch/install icons.
 This replaces the earlier aa wordmark and blue circular artwork without
 changing the portrait-led composition or other factual copy.
 
-Only ReverseScope and SentinelFlow form the initial project selection. Explore
+PacketScope, ReverseScope, and SentinelFlow form the initial project selection. Explore
 more projects reveals the other five, including ML Optimized Traffic Control,
 using the same full scene, visual evidence, and detail-dialog components. The native disclosure
 button keeps focus and exposes its expanded state; collapsed projects are

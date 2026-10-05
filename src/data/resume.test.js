@@ -3,9 +3,9 @@ import { existsSync } from 'node:fs';
 import test from 'node:test';
 import { certifications, contacts, experience, projects, skills, stats } from './resume.js';
 
-test('all seven real projects retain the same complete scene and detail content', () => {
+test('all eight real projects retain the same complete scene and detail content', () => {
   assert.deepEqual(projects.map(({ id }) => id), [
-    'reversescope', 'cubeguide', 'sentinelflow', 'traffic', 'disease', 'math-genius', 'solveit',
+    'packetscope', 'reversescope', 'cubeguide', 'sentinelflow', 'traffic', 'disease', 'math-genius', 'solveit',
   ]);
   for (const project of projects) {
     assert.ok(project.description.length > 100, project.id);
@@ -18,25 +18,41 @@ test('all seven real projects retain the same complete scene and detail content'
   }
 });
 
-test('only ReverseScope and SentinelFlow are initially selected, with Traffic Control in the expanded collection', () => {
+test('only PacketScope, ReverseScope and SentinelFlow are initially selected, with the other five in the expanded collection', () => {
   assert.deepEqual(projects.filter(({ showcase }) => showcase).map(({ id }) => id), [
-    'reversescope', 'sentinelflow',
+    'packetscope', 'reversescope', 'sentinelflow',
   ]);
   assert.deepEqual(projects.filter(({ showcase }) => !showcase).map(({ id }) => id), [
     'cubeguide', 'traffic', 'disease', 'math-genius', 'solveit',
   ]);
 });
 
-test('ReverseScope describes its real local static-analysis scope without invented destinations', () => {
+test('PacketScope uses the supplied demo and source with factual network-forensics details', () => {
+  const packet = projects.find(({ id }) => id === 'packetscope');
+  assert.equal(packet.link, 'https://packetscope-mo14.onrender.com/');
+  assert.equal(packet.linkLabel, 'Open PacketScope');
+  assert.equal(packet.repository, 'https://github.com/ass-ier/PacketScope');
+  assert.equal(packet.status, 'Read-only live demo');
+  assert.equal(packet.period, undefined);
+  assert.match(packet.description, /PCAP and PCAPNG/);
+  assert.match(packet.caption, /Synthetic packet captures/);
+  assert.match(packet.notice, /Read-only demo/);
+  assert.match(packet.notice, /not an automatic compromise verdict/);
+  assert.ok(packet.highlights.some((highlight) => highlight.includes('Never executes captured traffic')));
+});
+
+test('ReverseScope links to the supplied live demo and source while preserving its static-analysis limitations', () => {
   const reverse = projects.find(({ id }) => id === 'reversescope');
-  assert.equal(reverse.status, 'Local-first workstation');
-  assert.equal(reverse.link, undefined);
-  assert.equal(reverse.repository, undefined);
+  assert.equal(reverse.status, 'Read-only live demo');
+  assert.equal(reverse.link, 'https://frontend-lilac-nu-29.vercel.app/');
+  assert.equal(reverse.linkLabel, 'Open ReverseScope');
+  assert.equal(reverse.repository, 'https://github.com/ass-ier/ReverseScope');
   assert.equal(reverse.period, undefined);
   assert.match(reverse.description, /never executed/);
   assert.match(reverse.caption, /synthetic PE test fixtures/);
-  assert.match(reverse.notice, /not a hosted demo/);
+  assert.match(reverse.notice, /Read-only demo/);
   assert.match(reverse.notice, /does not prove executed behavior/);
+  assert.doesNotMatch(reverse.notice, /not (?:a hosted demo|deployed)/i);
 });
 
 test('CubeGuide has its verified live and source destinations', () => {
@@ -48,11 +64,11 @@ test('CubeGuide has its verified live and source destinations', () => {
   assert.ok(cube.highlights.some((text) => text.includes('stay on-device')));
 });
 
-test('SentinelFlow uses its live deployment without inventing a repository or project date', () => {
+test('SentinelFlow keeps its live deployment and uses the supplied repository without inventing a project date', () => {
   const sentinel = projects.find(({ id }) => id === 'sentinelflow');
   assert.equal(sentinel.link, 'https://sentinel-flow-fawn.vercel.app/');
   assert.equal(sentinel.linkLabel, 'Open SentinelFlow');
-  assert.equal(sentinel.repository, undefined);
+  assert.equal(sentinel.repository, 'https://github.com/ass-ier/SentinelFlow');
   assert.equal(sentinel.period, undefined);
   assert.equal(sentinel.status, 'Live web app');
   assert.doesNotMatch(sentinel.description, /not (?:publicly )?deployed/i);

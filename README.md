@@ -96,25 +96,35 @@ See the [official setup guide](https://vercel.com/docs/analytics/quickstart).
 credentials, awards, original portfolio metrics, and contact destinations.
 Education and the biographical introduction live in `src/sections/About.jsx`.
 
-All seven projects use the same full visual scenes and keyboard-accessible
-detail views. Only ReverseScope and SentinelFlow are shown initially.
+All eight projects use the same full visual scenes and keyboard-accessible
+detail views. PacketScope, ReverseScope, and SentinelFlow are shown initially,
+in that order.
 **Explore more projects** reveals CubeGuide, ML Optimized Traffic Control,
 Disease Prediction, Math Genius AI, and Automated Answer Sheet Grading with the
 same imagery, descriptions, metadata, and detail access. **Show fewer projects**
 collapses them.
 
-- **ReverseScope:** a local-first Windows PE analysis and investigation
-  workstation. Its existing synthetic acceptance capture shows static findings
-  and source evidence; uploaded binaries are never executed. No hosted demo or
-  public repository destination is supplied. Static evidence is not proof of
-  executed behavior or a definitive malware verdict.
+- **PacketScope:** [live demo](https://packetscope-mo14.onrender.com/) and
+  [source](https://github.com/ass-ier/PacketScope). A local-first PCAP/PCAPNG
+  network-forensics workspace with flow/protocol evidence, detections, analyst
+  cases, and forensic reports. Its hosted demo is read-only and synthetic;
+  findings are investigative leads, not automatic compromise verdicts.
+  The responsive preview images are top-of-workspace crops of the repository's
+  `docs/screenshots/dashboard.png`, documented as synthetic fixture data.
+- **ReverseScope:** [live demo](https://frontend-lilac-nu-29.vercel.app/) and
+  [source](https://github.com/ass-ier/ReverseScope). A local-first Windows PE
+  analysis and investigation workstation with a read-only synthetic hosted demo.
+  Its existing synthetic acceptance capture shows static findings and source
+  evidence; uploaded binaries are never executed. Static evidence is not proof
+  of executed behavior or a definitive malware verdict.
 - **CubeGuide:** [live application](https://cubeguide-phi.vercel.app/) and
   [source](https://github.com/ass-ier/CubeGuide). Its screenshot shows a practice
   scramble and the verified solution interface, not an uploaded physical cube.
-- **SentinelFlow:** [live application](https://sentinel-flow-fawn.vercel.app/),
+- **SentinelFlow:** [live application](https://sentinel-flow-fawn.vercel.app/) and
+  [source](https://github.com/ass-ier/SentinelFlow);
   a detection-engineering portfolio application, **not a production SIEM**.
   Its saved development captures contain synthetic demonstration data, not
-  employer telemetry. No public repository URL is supplied or invented.
+  employer telemetry.
 - **Original projects:** ML Optimized Traffic Control, Disease Prediction, Math
   Genius AI, and Automated Answer Sheet Grading retain the original descriptions,
   highlights, dates, metrics, and external link behavior.
