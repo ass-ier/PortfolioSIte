@@ -3,15 +3,40 @@ import { existsSync } from 'node:fs';
 import test from 'node:test';
 import { certifications, contacts, experience, projects, skills, stats } from './resume.js';
 
-test('all six real projects remain discoverable with substantive details', () => {
+test('all seven real projects retain the same complete scene and detail content', () => {
   assert.deepEqual(projects.map(({ id }) => id), [
-    'cubeguide', 'sentinelflow', 'traffic', 'disease', 'math-genius', 'solveit',
+    'reversescope', 'cubeguide', 'sentinelflow', 'traffic', 'disease', 'math-genius', 'solveit',
   ]);
   for (const project of projects) {
     assert.ok(project.description.length > 100, project.id);
     assert.ok(project.highlights.length >= 4, project.id);
     assert.ok(project.tags.length >= 4, project.id);
+    for (const key of ['discipline', 'status', 'summary', 'introduction', 'visualTitle', 'visualLabel']) {
+      assert.ok(typeof project[key] === 'string' && project[key].trim().length > 0, `${project.id}: ${key}`);
+    }
+    assert.ok(['paper', 'lavender', 'sage'].includes(project.visualTone), project.id);
   }
+});
+
+test('only ReverseScope and SentinelFlow are initially selected, with Traffic Control in the expanded collection', () => {
+  assert.deepEqual(projects.filter(({ showcase }) => showcase).map(({ id }) => id), [
+    'reversescope', 'sentinelflow',
+  ]);
+  assert.deepEqual(projects.filter(({ showcase }) => !showcase).map(({ id }) => id), [
+    'cubeguide', 'traffic', 'disease', 'math-genius', 'solveit',
+  ]);
+});
+
+test('ReverseScope describes its real local static-analysis scope without invented destinations', () => {
+  const reverse = projects.find(({ id }) => id === 'reversescope');
+  assert.equal(reverse.status, 'Local-first workstation');
+  assert.equal(reverse.link, undefined);
+  assert.equal(reverse.repository, undefined);
+  assert.equal(reverse.period, undefined);
+  assert.match(reverse.description, /never executed/);
+  assert.match(reverse.caption, /synthetic PE test fixtures/);
+  assert.match(reverse.notice, /not a hosted demo/);
+  assert.match(reverse.notice, /does not prove executed behavior/);
 });
 
 test('CubeGuide has its verified live and source destinations', () => {
@@ -19,7 +44,7 @@ test('CubeGuide has its verified live and source destinations', () => {
   assert.equal(cube.link, 'https://cubeguide-phi.vercel.app/');
   assert.equal(cube.repository, 'https://github.com/ass-ier/CubeGuide');
   assert.equal(cube.status, 'Live web app');
-  assert.ok(cube.showcase);
+  assert.equal(cube.showcase, false);
   assert.ok(cube.highlights.some((text) => text.includes('stay on-device')));
 });
 
@@ -37,7 +62,7 @@ test('SentinelFlow uses its live deployment without inventing a repository or pr
 });
 
 test('original project dates and external link behavior are preserved', () => {
-  const original = projects.filter(({ showcase }) => !showcase);
+  const original = ['traffic', 'disease', 'math-genius', 'solveit'].map((id) => projects.find((project) => project.id === id));
   assert.deepEqual(original.map(({ id, period }) => [id, period]), [
     ['traffic', 'Jun – Oct 2025'],
     ['disease', 'Aug – Sep 2024'],

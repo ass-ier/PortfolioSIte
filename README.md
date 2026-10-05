@@ -96,9 +96,18 @@ See the [official setup guide](https://vercel.com/docs/analytics/quickstart).
 credentials, awards, original portfolio metrics, and contact destinations.
 Education and the biographical introduction live in `src/sections/About.jsx`.
 
-All six projects have keyboard-accessible detail views. CubeGuide and
-SentinelFlow have featured, native-scroll project scenes:
+All seven projects use the same full visual scenes and keyboard-accessible
+detail views. Only ReverseScope and SentinelFlow are shown initially.
+**Explore more projects** reveals CubeGuide, ML Optimized Traffic Control,
+Disease Prediction, Math Genius AI, and Automated Answer Sheet Grading with the
+same imagery, descriptions, metadata, and detail access. **Show fewer projects**
+collapses them.
 
+- **ReverseScope:** a local-first Windows PE analysis and investigation
+  workstation. Its existing synthetic acceptance capture shows static findings
+  and source evidence; uploaded binaries are never executed. No hosted demo or
+  public repository destination is supplied. Static evidence is not proof of
+  executed behavior or a definitive malware verdict.
 - **CubeGuide:** [live application](https://cubeguide-phi.vercel.app/) and
   [source](https://github.com/ass-ier/CubeGuide). Its screenshot shows a practice
   scramble and the verified solution interface, not an uploaded physical cube.
@@ -128,9 +137,13 @@ project evidence with invented metrics, deployment status, or availability.
 - Scroll-linked portrait/type movement and sticky project scenes use Framer
   Motion. Featured captures add bounded spring-based pointer depth and a
   one-shot reflected-light sweep. Mobile scenes stay in normal document flow.
-- The project archive has a sticky preview window that responds to hover and
-  keyboard focus. Projects without a supplied screenshot use explicitly labeled
-  concept illustrations, also available in their detail views on touch devices.
+- The project disclosure is a native button with `aria-expanded` and
+  `aria-controls`. Its five additional scenes mount only when expanded; collapsed
+  projects are absent from keyboard navigation and do not request their images.
+  The control keeps focus when toggled, and project dialogs restore focus to
+  their opener without collapsing the collection. Projects without supplied
+  screenshots use explicitly labeled concept illustrations in both their scenes
+  and detail views.
 - The career sidebar previews the role being read, hovered, or keyboard-focused.
   A scroll-linked timeline and four native chapter anchors provide wayfinding;
   the full career text remains readable without interacting with the preview.
@@ -182,6 +195,15 @@ project evidence with invented metrics, deployment status, or availability.
   scene explicitly distinguishes its security metaphor from real encryption.
 
 ## Local assets and design
+
+`public/logo.svg` is the user-approved Triple A signature for Assier Anteneh
+Alemu: three joined, double-storey lowercase a letters, with the third in orange.
+The header uses this vector directly. `public/favicon.svg` contains the matching
+single a and three dots on paper; the 16px/32px PNGs, 16px/32px/48px ICO,
+180px Apple touch icon, and 192px/512px Android icons are rendered from it.
+The document and install manifest version their icon URLs so cached blue artwork
+does not mask the new identity. `src/branding.test.js` checks the shared outline,
+asset dimensions, ICO frames, and icon references.
 
 `public/images/` contains optimized, responsive JPEG derivatives of the two
 user-supplied portraits and actual project captures. The originals are not

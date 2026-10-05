@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { AnimatePresence, motion as Motion, useScroll, useTransform } from 'framer-motion';
+import { motion as Motion, useScroll, useTransform } from 'framer-motion';
 import Arrow from '../components/Arrow';
 import Dialog from '../components/Dialog';
 import ProjectStudy from '../components/ProjectStudy';
@@ -9,7 +9,7 @@ import { projects } from '../data/resume';
 import styles from './Projects.module.css';
 
 const featured = projects.filter((project) => project.showcase);
-const archive = projects.filter((project) => !project.showcase);
+const additional = projects.filter((project) => !project.showcase);
 
 function ProjectImage({ project, className = '', lazy = false }) {
   return (
@@ -24,6 +24,17 @@ function ProjectImage({ project, className = '', lazy = false }) {
       loading={lazy ? 'lazy' : 'eager'}
       decoding="async"
     />
+  );
+}
+
+function ProjectLink({ project, className }) {
+  if (!project.link) return null;
+
+  return (
+    <a className={className} href={project.link} target="_blank" rel="noopener noreferrer">
+      {project.linkLabel?.replace(/\s*[↗→]\s*$/u, '') || 'Open project'} <Arrow />
+      <span className="visually-hidden"> (opens in a new tab)</span>
+    </a>
   );
 }
 
@@ -76,20 +87,17 @@ function ProjectDetails({ project, onClose }) {
               <figcaption>Inside an investigation: synthetic evidence connected to the rule that triggered it.</figcaption>
             </figure>
           )}
-          <div className={styles.detailActions}>
-            {project.link && (
-              <a className="round-link" href={project.link} target="_blank" rel="noopener noreferrer">
-                {project.linkLabel?.replace(/\s*[↗→]\s*$/u, '') || 'Open project'} <Arrow />
-                <span className="visually-hidden"> (opens in a new tab)</span>
-              </a>
-            )}
-            {project.repository && (
-              <a className="text-link" href={project.repository} target="_blank" rel="noopener noreferrer">
-                View source <Arrow /><span className="visually-hidden"> (opens in a new tab)</span>
-              </a>
-            )}
-            {project.id === 'sentinelflow' && <p className={styles.localNotice}>Security analytics portfolio project. Not a production SIEM.</p>}
-          </div>
+          {(project.link || project.repository || project.notice) && (
+            <div className={styles.detailActions}>
+              <ProjectLink project={project} className="round-link" />
+              {project.repository && (
+                <a className="text-link" href={project.repository} target="_blank" rel="noopener noreferrer">
+                  View source <Arrow /><span className="visually-hidden"> (opens in a new tab)</span>
+                </a>
+              )}
+              {project.notice && <p className={styles.localNotice}>{project.notice}</p>}
+            </div>
+          )}
         </div>
       </div>
     </Dialog>
@@ -108,22 +116,29 @@ function ProjectScene({ project, onOpen }) {
   const clipPath = useTransform(scrollYProgress, [0, 0.42], ['inset(14% 8% 14% 8%)', 'inset(0% 0% 0% 0%)']);
 
   return (
-    <article ref={ref} className={styles.sceneTrack} aria-labelledby={`project-${project.id}`}>
+    <article ref={ref} className={styles.sceneTrack} aria-labelledby={`project-${project.id}`} data-project-scene={project.id}>
       <div className={styles.scene}>
         <div className={styles.projectCopy}>
           <h3 id={`project-${project.id}`}>{project.title}</h3>
           <p className={styles.discipline}>{project.discipline}</p>
           <p className={styles.projectSummary}>{project.summary}</p>
           <p className={styles.introduction}>{project.introduction}</p>
+          {(project.period || project.badge) && (
+            <p className={styles.projectMeta}>
+              {project.period && <span>{project.period}</span>}
+              {project.badge && <span>{project.badge}</span>}
+            </p>
+          )}
           <p className={styles.projectStatus}><span aria-hidden="true" />{project.status}</p>
           <button className={styles.detailLink} onClick={() => onOpen(project)}>
             Explore project <Arrow /><span className="visually-hidden">: {project.title}</span>
           </button>
-          {project.link && <a className={styles.liveLink} href={project.link} target="_blank" rel="noopener noreferrer">Visit live site <Arrow /><span className="visually-hidden"> (opens in a new tab)</span></a>}
+          <ProjectLink project={project} className={styles.liveLink} />
         </div>
         <figure className={styles.projectFigure}>
           <button
-            className={`${styles.visual} ${project.id === 'cubeguide' ? styles.cubeVisual : styles.sentinelVisual}`}
+            className={styles.visual}
+            data-tone={project.visualTone}
             onClick={() => onOpen(project)}
             onPointerMove={tilt.onPointerMove}
             onPointerLeave={tilt.onPointerLeave}
@@ -131,103 +146,57 @@ function ProjectScene({ project, onOpen }) {
             aria-label={`View ${project.title} project details`}
           >
             <Motion.span className={styles.sceneWord} style={reducedMotion ? undefined : { x: wordX }} aria-hidden="true">{project.title}</Motion.span>
-            <span className={styles.visualTitle}>{project.id === 'cubeguide' ? 'A puzzle. A process. A little clarity.' : 'From event to evidence.'}</span>
+            <span className={styles.visualTitle}>{project.visualTitle}</span>
             <Motion.div className={styles.screenDepth} style={tilt.style} data-project-depth={project.id}>
               <Motion.div className={styles.screen} style={reducedMotion ? undefined : { rotate, scale, y, clipPath }}>
-                <ProjectImage project={project} lazy />
+                {project.image ? <ProjectImage project={project} lazy /> : (
+                  <div className={styles.studyCanvas} data-study={project.study}>
+                    <ProjectStudy kind={project.study} />
+                  </div>
+                )}
                 <span className={styles.screenReflection} aria-hidden="true" />
               </Motion.div>
             </Motion.div>
             <span className={styles.visualFooter}>
-              <span>{project.id === 'cubeguide' ? 'On-device by design' : 'Detection engineering'}</span>
+              <span>{project.visualLabel}</span>
               <span className={styles.visualAction}><span className={styles.visualHint} aria-hidden="true">Open project</span><span className={styles.visualArrow}><Arrow /></span></span>
             </span>
           </button>
-          <figcaption>{project.caption}</figcaption>
+          <figcaption>{project.caption || project.studyCaption}</figcaption>
         </figure>
       </div>
     </article>
   );
 }
 
-function ArchivePreview({ project, onOpen }) {
-  const reducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)');
-  const tilt = usePointerTilt(5);
-
-  return (
-    <figure className={styles.archivePreview} data-project-preview={project.id} onPointerMove={tilt.onPointerMove} onPointerLeave={tilt.onPointerLeave}>
-      <Motion.div className={styles.previewDepth} style={tilt.style}>
-        <button className={styles.previewButton} onClick={() => onOpen(project)} onBlur={tilt.onBlur} aria-label={`Open previewed project: ${project.title}`}>
-          <div className={styles.previewViewport} data-study={project.study || 'capture'}>
-            <AnimatePresence initial={false}>
-              <Motion.div
-                key={project.id}
-                className={styles.previewMedia}
-                initial={reducedMotion ? false : { opacity: 0, clipPath: 'inset(0% 100% 0% 0%)' }}
-                animate={{ opacity: 1, clipPath: 'inset(0% 0% 0% 0%)' }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: reducedMotion ? 0 : 0.36, ease: [0.22, 1, 0.36, 1] }}
-              >
-                {project.image ? <ProjectImage project={project} lazy /> : <ProjectStudy kind={project.study} />}
-              </Motion.div>
-            </AnimatePresence>
-            <span className={styles.previewCorners} aria-hidden="true" />
-            <span className={styles.previewOpen} aria-hidden="true"><Arrow /></span>
-          </div>
-          <span className={styles.previewCaption}>{project.title}</span>
-        </button>
-      </Motion.div>
-      <figcaption>{project.image ? 'Application capture' : project.studyCaption}</figcaption>
-      <ul className={`tags ${styles.previewTags}`} aria-label="Previewed project technologies">
-        {project.tags.slice(0, 3).map((tag) => <li key={tag}>{tag}</li>)}
-      </ul>
-    </figure>
-  );
-}
-
 export default function Projects() {
   const [selected, setSelected] = useState(null);
-  const [preview, setPreview] = useState(archive[0]);
+  const [expanded, setExpanded] = useState(false);
 
   return (
     <section id="projects" className={styles.projects} tabIndex={-1} aria-labelledby="projects-heading">
       <div className="container">
         <div className={styles.heading}>
           <h2 id="projects-heading" className="section-title">A few things<br />I&apos;ve built.</h2>
-          <p>Six projects. Different problems.<br />The same curiosity about how things work.</p>
+          <p>Selected projects. Different problems.<br />The same curiosity about how things work.</p>
         </div>
         {featured.map((project) => <ProjectScene key={project.id} project={project} onOpen={setSelected} />)}
-        <div className={styles.archive}>
-          <div className={styles.archiveHeading}>
-            <h3>More explorations.</h3>
-            <p><span className={styles.desktopHint}>Hover or focus to preview. Select to explore.</span><span className={styles.touchHint}>Select a project to explore.</span></p>
-          </div>
-          <div className={styles.archiveLayout}>
-            <div className={styles.archiveList}>
-              {archive.map((project) => (
-                <article key={project.id}>
-                  <button
-                    className={styles.archiveRow}
-                    data-preview-active={preview.id === project.id}
-                    onClick={() => setSelected(project)}
-                    onFocus={() => setPreview(project)}
-                    onPointerEnter={(event) => {
-                      if (event.pointerType === 'mouse') setPreview(project);
-                    }}
-                    aria-label={`Explore ${project.title}`}
-                  >
-                    <span className={styles.archiveName}>
-                      <span className={styles.archiveTitle}>{project.title}</span>
-                      {project.badge && <span className={styles.archiveBadge}>{project.badge}</span>}
-                    </span>
-                    <span className={styles.archiveMeta}>{project.period}<span>{project.category === 'ml' ? 'AI / ML' : 'Systems / Engineering'}</span></span>
-                    <span className={styles.archiveArrow}><Arrow /></span>
-                  </button>
-                </article>
-              ))}
-            </div>
-            <ArchivePreview project={preview} onOpen={setSelected} />
-          </div>
+        <div className={styles.disclosure}>
+          <button
+            type="button"
+            className={`${styles.detailLink} ${styles.moreButton}`}
+            aria-expanded={expanded}
+            aria-controls="more-projects"
+            onClick={() => setExpanded((value) => !value)}
+          >
+            {expanded ? 'Show fewer projects' : 'Explore more projects'}
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="m6 9 6 6 6-6" stroke="currentColor" strokeWidth="1.5" />
+            </svg>
+          </button>
+        </div>
+        <div id="more-projects" className={styles.moreProjects} hidden={!expanded}>
+          {expanded && additional.map((project) => <ProjectScene key={project.id} project={project} onOpen={setSelected} />)}
         </div>
       </div>
       {selected && <ProjectDetails project={selected} onClose={() => setSelected(null)} />}

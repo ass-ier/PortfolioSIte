@@ -125,8 +125,9 @@ never the only place essential status or actions appear.
 
 The shared container caps at 1600px and uses fluid side gutters. Major sections
 use the shared section spacing rather than identical card grids. Composition
-alternates a large portrait, two project scenes, a quieter biographical passage,
-a career timeline, dense skills/credentials, and an orange contact close.
+alternates a large portrait, two initial project scenes, a quieter biographical
+passage, a career timeline, dense skills/credentials, and an orange contact close.
+Five more projects expand on request using the same scene composition.
 
 At 760px and below, navigation becomes a native modal menu, portrait/text grids
 stack, project scenes return to normal flow, and contact rows reflow to keep
@@ -160,7 +161,14 @@ photograph is a generated likeness.
 
 ### Navigation
 
-A fixed paper header holds the typographic monogram and five direct anchors.
+A fixed paper header holds the approved Triple A monogram without adjacent name
+text, plus five direct anchors. Its back-to-top link retains the full name for
+assistive technology. The mark uses three joined, double-storey lowercase a
+outlines; the third is orange. The local SVG reserves its aspect ratio and
+uses a smaller size on narrow screens.
+The favicon reduces the signature to one matching a with three orange dots.
+A paper background keeps browser, touch, and installed-app icons legible against
+both light and dark surroundings; all raster variants derive from `favicon.svg`.
 Hover/focus adds a small dot under desktop links. The mobile menu uses the shared
 native dialog, labeled navigation, a visible close button, and destination focus
 after navigating.
@@ -175,13 +183,19 @@ six pixels.
 
 ### Project scenes and details
 
-Each featured scene combines project identity, purpose, explicit deployment
-status, a real capture, its provenance caption, and substantive detail access.
-The screenshot is also an accessible button; essential controls and information
-are never hover-only. The four earlier projects form a typographic archive
-beside a sticky preview window. Hover and keyboard focus select a preview;
-selection persists so the visitor can move into the preview itself. Both the
-row and preview open the same detail view.
+Each project scene combines identity, purpose, explicit status, a real capture
+or clearly labeled concept illustration, its provenance caption, and substantive
+detail access. The visual is also an accessible button; essential controls and
+information are never hover-only. Only ReverseScope and SentinelFlow appear
+initially. A centered outlined Explore more projects button reveals the other
+five projects, including Traffic Control, in the same scene and detail components,
+replacing the compact archive rows rather than reducing their content.
+
+The disclosure uses a native button with `aria-expanded` and `aria-controls`.
+It keeps keyboard focus and becomes Show fewer projects when expanded. Its
+chevron changes direction using the shared transition; the content mounts in
+normal document flow without animated heights or additional scroll spacers.
+Collapsed scenes do not load imagery or create hidden keyboard stops.
 
 Real application captures remain distinct from the three explicitly labeled
 SVG concept illustrations. The illustrations use a 600-by-420 coordinate space:
@@ -189,10 +203,10 @@ SVG concept illustrations. The illustrations use a 600-by-420 coordinate space:
 answer numbers scale with the artwork. These are drawing coordinates, not
 additional application typography steps or real product output.
 
-Project preview windows use a directional mask to explain selection changes,
-with fine registration corners rather than dashboard decoration. They do not
-follow or replace the user's cursor. On mobile the list remains direct;
-the same visual evidence is available in the detail view.
+Project image planes retain their native-scroll masks and bounded fine-pointer
+depth. They do not follow or replace the user's cursor. Expanded scenes receive
+the same treatment as the initial two; all scenes are static normal-flow
+compositions on mobile and under reduced motion.
 
 Details use a native modal dialog with protected focus, a sticky close row,
 project evidence, highlights, tools, and only real external destinations. Escape

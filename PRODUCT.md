@@ -27,7 +27,14 @@ specified; implementation proceeds autonomously as requested.
 - Education includes the BSc in Software Engineering from HiLCoE (2021-2025)
   and the MSc in Computer Science currently being pursued at Addis Ababa
   University (2026-2029, expected), with a specialization in Network and Security.
-- Preserve all existing projects and add CubeGuide and SentinelFlow prominently.
+- Preserve all seven projects. Show only ReverseScope and SentinelFlow initially;
+  an Explore more projects button reveals CubeGuide, ML Optimized Traffic
+  Control, Disease Prediction, Math Genius AI, and Automated Answer Sheet Grading
+  with the same scene layout and full detail access.
+- ReverseScope is a local-first Windows PE static-analysis workstation. Its
+  supplied development capture uses synthetic test fixtures. Binaries are never
+  executed; static evidence does not establish runtime behavior or a definitive
+  malware verdict. Do not invent a hosted demo, public repository, or dates.
 - CubeGuide is hosted at `https://cubeguide-phi.vercel.app/`.
 - SentinelFlow is hosted at `https://sentinel-flow-fawn.vercel.app/`. Preserve its
   portfolio-project scope, synthetic screenshot context, and not-a-production-SIEM
@@ -67,6 +74,9 @@ must not be copied.
 - Independently collected CubeGuide visuals and SentinelFlow project facts are
   supplied by the coordinating session; this implementation does not run those
   projects or invent missing evidence.
+- ReverseScope's existing dedicated-worktree documentation and synthetic
+  acceptance screenshot establish its scope and visual evidence. The portfolio
+  reuses an optimized copy without running ReverseScope or handling binaries.
 - No downloadable resume was supplied.
 
 ## Product Principles

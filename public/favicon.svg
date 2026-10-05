@@ -1,75 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
-  <defs>
-    <!-- Background circle fill -->
-    <radialGradient id="bgGrad" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#0d1220"/>
-      <stop offset="100%" stop-color="#060a10"/>
-    </radialGradient>
-
-    <!-- Blue gradient for center A -->
-    <linearGradient id="blueGrad" x1="50%" y1="0%" x2="50%" y2="100%">
-      <stop offset="0%" stop-color="#5b8cff"/>
-      <stop offset="50%" stop-color="#2a5fe8"/>
-      <stop offset="100%" stop-color="#1a3db5"/>
-    </linearGradient>
-
-    <!-- Silver gradient for side A's -->
-    <linearGradient id="silverGrad" x1="30%" y1="0%" x2="70%" y2="100%">
-      <stop offset="0%" stop-color="#c8d0de"/>
-      <stop offset="40%" stop-color="#8f9aac"/>
-      <stop offset="100%" stop-color="#5a6478"/>
-    </linearGradient>
-
-    <!-- Bevel light for silver -->
-    <linearGradient id="silverHighlight" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#dce4f0"/>
-      <stop offset="100%" stop-color="#4a5568"/>
-    </linearGradient>
-
-    <!-- Drop shadow filter -->
-    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="3" result="blur"/>
-      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-    </filter>
-    <filter id="blueGlow" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur stdDeviation="4" result="blur"/>
-      <feFlood flood-color="#2a5fe8" flood-opacity="0.5" result="color"/>
-      <feComposite in="color" in2="blur" operator="in" result="shadow"/>
-      <feComposite in="SourceGraphic" in2="shadow" operator="over"/>
-    </filter>
-  </defs>
-
-  <!-- Background circle -->
-  <circle cx="100" cy="100" r="96" fill="url(#bgGrad)"/>
-
-  <!-- Blue ring border -->
-  <circle cx="100" cy="100" r="94" fill="none" stroke="#2a5fe8" stroke-width="2.5" opacity="0.9"/>
-  <circle cx="100" cy="100" r="91" fill="none" stroke="#5b8cff" stroke-width="0.5" opacity="0.3"/>
-
-  <!-- ── LEFT silver A ── -->
-  <!-- Outer triangle shape -->
-  <polygon points="44,138 68,62 80,138" fill="url(#silverGrad)" filter="url(#glow)"/>
-  <!-- Inner cutout (crossbar notch) -->
-  <polygon points="52,138 68,82 75,138" fill="#0d1220" opacity="0.55"/>
-  <!-- Left face highlight -->
-  <polygon points="44,138 68,62 56,138" fill="url(#silverHighlight)" opacity="0.18"/>
-  <!-- Crossbar -->
-  <rect x="50" y="108" width="23" height="5" rx="1" fill="#a0abbe"/>
-
-  <!-- ── RIGHT silver A ── -->
-  <polygon points="120,138 132,62 156,138" fill="url(#silverGrad)" filter="url(#glow)"/>
-  <polygon points="125,138 132,82 148,138" fill="#0d1220" opacity="0.55"/>
-  <polygon points="120,138 132,62 132,138" fill="url(#silverHighlight)" opacity="0.18"/>
-  <rect x="127" y="108" width="23" height="5" rx="1" fill="#a0abbe"/>
-
-  <!-- ── CENTER blue A (taller, overlapping) ── -->
-  <polygon points="82,142 100,52 118,142" fill="url(#blueGrad)" filter="url(#blueGlow)"/>
-  <!-- Inner cutout -->
-  <polygon points="89,142 100,72 111,142" fill="#0d1220" opacity="0.45"/>
-  <!-- Left bevel highlight -->
-  <polygon points="82,142 100,52 91,142" fill="#7aaaff" opacity="0.15"/>
-  <!-- Crossbar -->
-  <rect x="88" y="108" width="24" height="5.5" rx="1.2" fill="#4a7fff"/>
-  <!-- Top glint -->
-  <polygon points="97,56 100,52 103,56" fill="#9bbfff" opacity="0.7"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96" role="img" aria-labelledby="title">
+  <title id="title">Triple A</title>
+  <rect width="96" height="96" fill="#f3f2ed"/>
+  <g transform="translate(16 2)">
+    <g fill="#aa3518">
+      <circle cx="17" cy="7" r="4"/>
+      <circle cx="32" cy="7" r="4"/>
+      <circle cx="47" cy="7" r="4"/>
+    </g>
+    <path transform="translate(3 15)" fill="#242620" fill-rule="evenodd" d="M29 4C14 4 5 10 3 23l16 3c1-7 5-10 11-10 9 0 13 4 13 12v2l-18 2C8 34 0 41 0 54c0 13 9 20 22 20 10 0 17-4 22-10v8h14V30C58 12 49 4 29 4ZM43 42v5c0 10-6 15-15 15-7 0-11-3-11-8 0-5 3-8 12-9l14-3Z"/>
+  </g>
 </svg>

@@ -2,7 +2,7 @@
 version: 1
 slug: "src-app-jsx"
 primary_target: "src/App.jsx"
-related_targets: ["src/sections/Hero.jsx","src/sections/Projects.jsx","src/sections/About.jsx","src/sections/Experience.jsx","src/sections/Skills.jsx","src/sections/Contact.jsx","src/components/PortraitImage.jsx","src/components/EmailComposer.jsx","src/components/MessageTransmission.jsx"]
+related_targets: ["src/sections/Hero.jsx","src/sections/Projects.jsx","src/sections/About.jsx","src/sections/Experience.jsx","src/sections/Skills.jsx","src/sections/Contact.jsx","src/components/PortraitImage.jsx","src/components/EmailComposer.jsx","src/components/MessageTransmission.jsx","src/components/Navbar.jsx"]
 ---
 
 ## Scope and visitor mode
@@ -14,18 +14,20 @@ exploration, not a simulated operating system.
 ## Audience, job, and action
 
 Prospective employers, collaborators, and peers should understand Assier's
-practice, inspect six substantive projects and the career behind them, verify
+practice, inspect seven substantive projects and the career behind them, verify
 credentials, and make direct contact.
 
 ## Proof and constraints
 
-The two supplied portraits, real CubeGuide and SentinelFlow application
+The two supplied portraits, real ReverseScope, CubeGuide, and SentinelFlow application
 captures, the source resume, exact credential links, and direct contact data
 are the evidence. SentinelFlow's supplied live destination is
 `https://sentinel-flow-fawn.vercel.app/`; its saved screenshots remain explicitly
 synthetic development captures, not employer telemetry. It is not a production
-SIEM. Native scrolling, keyboard access, mobile reflow, and reduced motion are
-required.
+SIEM. ReverseScope is a local-first static-analysis workstation, illustrated by
+its existing synthetic acceptance capture; it never executes uploaded binaries
+and has no supplied hosted demo. Native scrolling, keyboard access, mobile reflow,
+and reduced motion are required.
 
 ## Selected direction and memorable moment
 
@@ -36,12 +38,24 @@ project interfaces into large colored fields, then gives way to a readable
 career and a direct orange contact close. No random concept selection was
 needed because this direction was already approved.
 
-The requested motion enhancement adds a consistent focus-window interaction:
-hover/focus selects an archive project preview, and scroll/hover/focus selects
-a career chapter preview. Featured image planes respond to a fine pointer and
-native scrolling. Where no real project capture exists, labeled conceptual
-illustrations explain the workflow without masquerading as screenshots.
-No continuous loops, cursor replacement, or new factual claims are introduced.
+The user approved the alternative Triple A signature: three joined double-storey
+lowercase a letters, the third orange. The header shows only the logo, without
+adjacent name text; the back-to-top link keeps its accessible full-name label.
+One matching a with three dots supplies the favicon and touch/install icons.
+This replaces the earlier aa wordmark and blue circular artwork without
+changing the portrait-led composition or other factual copy.
+
+Only ReverseScope and SentinelFlow form the initial project selection. Explore
+more projects reveals the other five, including ML Optimized Traffic Control,
+using the same full scene, visual evidence, and detail-dialog components. The native disclosure
+button keeps focus and exposes its expanded state; collapsed projects are
+unmounted, not hidden keyboard stops. A second click collapses the collection.
+
+Scroll/hover/focus selects a career chapter preview. All project image planes
+respond to a fine pointer and native scrolling. Where no real project capture
+exists, labeled conceptual illustrations explain the workflow without
+masquerading as screenshots. No continuous loops, cursor replacement, or new
+factual claims are introduced.
 
 The about statement now traverses its actual measured width during native
 scrolling, making its full wording readable. The four original figures count

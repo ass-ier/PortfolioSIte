@@ -27,7 +27,7 @@
     "motion": [
       { "name": "ease-out", "value": "cubic-bezier(0.22, 1, 0.36, 1)", "purpose": "Small interactive state changes." },
       { "name": "duration", "value": "240ms", "purpose": "Default state transition duration; disabled for reduced motion." },
-      { "name": "preview-reveal", "value": "320ms–360ms", "purpose": "Directional masks preserve continuity when the project or career preview changes." },
+      { "name": "preview-reveal", "value": "320ms–360ms", "purpose": "Directional masks preserve continuity when the career preview changes. Project scenes now share native-scroll reveals, including the five scenes behind the project disclosure." },
       { "name": "pointer-depth", "value": "stiffness: 180; damping: 26; mass: 0.65", "purpose": "Fine-pointer-only image-plane tilt, bounded to five or seven degrees and disabled for reduced motion." },
       { "name": "image-reflection", "value": "700ms", "purpose": "One-shot hover/focus feedback on featured captures; never loops." },
       { "name": "email-handoff", "value": "1100ms cipher/seal, 1200ms geometric transit", "purpose": "A full-viewport native-dialog scene transforms authored text into masked cipher strips and a locked, faceted parcel moving through seven gates. Receipt is gated on server-side mail-provider acceptance. Dismissal preserves an active request; failure stays an error. Static reduced motion never skips the response. Not real end-to-end encryption or confirmed inbox delivery." },

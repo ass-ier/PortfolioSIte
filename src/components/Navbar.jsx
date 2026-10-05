@@ -28,9 +28,8 @@ export default function Navbar() {
     <>
       <header className={styles.header}>
         <div className={`container ${styles.inner}`}>
-          <a className={styles.wordmark} href="#hero" aria-label="Assier Anteneh, back to top">
-            <span className={styles.monogram} aria-hidden="true">a<span>a</span></span>
-            <span className={styles.signature}>Assier Anteneh</span>
+          <a className={styles.wordmark} href="#hero" aria-label="Assier Anteneh Alemu (Triple A), back to top">
+            <img className={styles.monogram} src="/logo.svg" width="172" height="80" alt="" />
           </a>
           <nav className={styles.desktopNav} aria-label="Primary navigation">
             {links.map((link) => <a key={link.id} href={`#${link.id}`}>{link.label}</a>)}
