@@ -3,9 +3,10 @@ import { existsSync } from 'node:fs';
 import test from 'node:test';
 import { certifications, contacts, experience, projects, skills, stats } from './resume.js';
 
-test('all eight real projects retain the same complete scene and detail content', () => {
+test('all ten real projects retain the same complete scene and detail content', () => {
   assert.deepEqual(projects.map(({ id }) => id), [
-    'packetscope', 'reversescope', 'cubeguide', 'sentinelflow', 'traffic', 'disease', 'math-genius', 'solveit',
+    'packetscope', 'reversescope', 'cubeguide', 'sentinelflow', 'riskscope', 'webscope',
+    'traffic', 'disease', 'math-genius', 'solveit',
   ]);
   for (const project of projects) {
     assert.ok(project.description.length > 100, project.id);
@@ -18,9 +19,9 @@ test('all eight real projects retain the same complete scene and detail content'
   }
 });
 
-test('only PacketScope, ReverseScope and SentinelFlow are initially selected, with the other five in the expanded collection', () => {
+test('RiskScope and WebScope join the original three selected projects, with the other five in the expanded collection', () => {
   assert.deepEqual(projects.filter(({ showcase }) => showcase).map(({ id }) => id), [
-    'packetscope', 'reversescope', 'sentinelflow',
+    'packetscope', 'reversescope', 'sentinelflow', 'riskscope', 'webscope',
   ]);
   assert.deepEqual(projects.filter(({ showcase }) => !showcase).map(({ id }) => id), [
     'cubeguide', 'traffic', 'disease', 'math-genius', 'solveit',
@@ -75,6 +76,35 @@ test('SentinelFlow keeps its live deployment and uses the supplied repository wi
   assert.match(sentinel.description, /not a production SIEM/);
   assert.match(sentinel.caption, /Synthetic demonstration data/);
   assert.ok(sentinel.showcase);
+});
+
+test('RiskScope uses its supplied destinations and distinguishes synthetic risk context from exploitation', () => {
+  const risk = projects.find(({ id }) => id === 'riskscope');
+  assert.equal(risk.link, 'https://frontend-ksyy.vercel.app/');
+  assert.equal(risk.linkLabel, 'Open RiskScope');
+  assert.equal(risk.repository, 'https://github.com/ass-ier/RiskScope');
+  assert.equal(risk.status, 'Temporary live workspace');
+  assert.equal(risk.period, undefined);
+  assert.match(risk.description, /SBOM dependencies/);
+  assert.match(risk.caption, /ExampleCorp synthetic assets and advisories/);
+  assert.match(risk.notice, /workspaces and uploads are temporary/);
+  assert.match(risk.notice, /not real product advisories/);
+  assert.match(risk.notice, /not proof of exploitation/);
+});
+
+test('WebScope uses its supplied destinations and discloses temporary import-only hosting', () => {
+  const web = projects.find(({ id }) => id === 'webscope');
+  assert.equal(web.link, 'https://webscope-sandy.vercel.app/');
+  assert.equal(web.linkLabel, 'Open WebScope');
+  assert.equal(web.repository, 'https://github.com/ass-ier/WebScope');
+  assert.equal(web.status, 'Import-only live app');
+  assert.equal(web.period, undefined);
+  assert.match(web.description, /explicitly authorized HTTP, DNS and TLS collection locally/);
+  assert.match(web.description, /HAR, WebScope assessment JSON and OpenAPI JSON/);
+  assert.match(web.caption, /owned local test fixture/);
+  assert.match(web.notice, /import-only: no target scanning/);
+  assert.match(web.notice, /Workspaces and uploads are temporary/);
+  assert.match(web.notice, /not proof of an exploitable vulnerability/);
 });
 
 test('original project dates and external link behavior are preserved', () => {

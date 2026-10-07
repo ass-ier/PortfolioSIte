@@ -96,9 +96,9 @@ See the [official setup guide](https://vercel.com/docs/analytics/quickstart).
 credentials, awards, original portfolio metrics, and contact destinations.
 Education and the biographical introduction live in `src/sections/About.jsx`.
 
-All eight projects use the same full visual scenes and keyboard-accessible
-detail views. PacketScope, ReverseScope, and SentinelFlow are shown initially,
-in that order.
+All ten projects use the same full visual scenes and keyboard-accessible
+detail views. PacketScope, ReverseScope, SentinelFlow, RiskScope, and WebScope
+are shown initially, in that order.
 **Explore more projects** reveals CubeGuide, ML Optimized Traffic Control,
 Disease Prediction, Math Genius AI, and Automated Answer Sheet Grading with the
 same imagery, descriptions, metadata, and detail access. **Show fewer projects**
@@ -125,6 +125,20 @@ collapses them.
   a detection-engineering portfolio application, **not a production SIEM**.
   Its saved development captures contain synthetic demonstration data, not
   employer telemetry.
+- **RiskScope:** [live application](https://frontend-ksyy.vercel.app/) and
+  [source](https://github.com/ass-ier/RiskScope). Asset-aware vulnerability
+  prioritization connects inventories, SBOMs, advisory snapshots, exposure and
+  business context. Its screenshot shows the hosted synthetic ExampleCorp
+  workspace, not real organizational data or product advisories. Hosted
+  workspaces and uploads are temporary; prioritization is not proof of exploitation.
+- **WebScope:** [live application](https://webscope-sandy.vercel.app/) and
+  [source](https://github.com/ass-ier/WebScope). An evidence-driven web-security
+  workstation with explained observations, redacted evidence and analyst cases.
+  Hosted mode is temporary and import-only; authorized network collection is a
+  local-mode capability. Its responsive preview images derive from the
+  repository's `docs/screenshots/finding-desktop.png`, showing an owned local
+  test fixture rather than a real-world assessment. Observations do not prove
+  an exploitable vulnerability.
 - **Original projects:** ML Optimized Traffic Control, Disease Prediction, Math
   Genius AI, and Automated Answer Sheet Grading retain the original descriptions,
   highlights, dates, metrics, and external link behavior.

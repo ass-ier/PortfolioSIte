@@ -27,10 +27,11 @@ specified; implementation proceeds autonomously as requested.
 - Education includes the BSc in Software Engineering from HiLCoE (2021-2025)
   and the MSc in Computer Science currently being pursued at Addis Ababa
   University (2026-2029, expected), with a specialization in Network and Security.
-- Preserve all eight projects. Show PacketScope, ReverseScope, and SentinelFlow
-  initially, in that order. An Explore more projects button reveals CubeGuide, ML Optimized Traffic
-  Control, Disease Prediction, Math Genius AI, and Automated Answer Sheet Grading
-  with the same scene layout and full detail access.
+- Preserve all ten projects. Show PacketScope, ReverseScope, SentinelFlow,
+  RiskScope, and WebScope initially, in that order. An Explore more projects
+  button reveals CubeGuide, ML Optimized Traffic Control, Disease Prediction,
+  Math Genius AI, and Automated Answer Sheet Grading with the same scene layout
+  and full detail access.
 - PacketScope is a local-first PCAP/PCAPNG network-forensics platform with a
   read-only synthetic demo at `https://packetscope-mo14.onrender.com/` and source
   at `https://github.com/ass-ier/PacketScope`. Preserve the user-supplied live URL,
@@ -46,6 +47,16 @@ specified; implementation proceeds autonomously as requested.
   portfolio-project scope, synthetic screenshot context, and not-a-production-SIEM
   disclosure. Its source is `https://github.com/ass-ier/SentinelFlow`;
   do not invent project dates.
+- RiskScope's supplied live URL is `https://frontend-ksyy.vercel.app/`, with
+  source at `https://github.com/ass-ier/RiskScope`. It prioritizes vulnerability
+  exposure using asset context; its hosted workspaces and uploads are temporary.
+  ExampleCorp advisories are synthetic fixtures, not real product advisories.
+  Contextual priority and potential paths do not prove exploitation.
+- WebScope's supplied live URL is `https://webscope-sandy.vercel.app/`, with
+  source at `https://github.com/ass-ier/WebScope`. Its hosted workspaces are
+  temporary and import-only. Authorized HTTP/DNS/TLS collection belongs to local
+  mode, not the public deployment. Findings and fixture captures are not proof
+  of a real-world exploitable vulnerability. Do not invent dates for either project.
 - Vercel Web Analytics is enabled in production builds using its React
   integration. Contact form values are not supplied as analytics events.
 - Preserve the supplied email, telephone, GitHub, and LinkedIn contacts.
@@ -87,6 +98,10 @@ must not be copied.
 - The supplied PacketScope repository's README, deployment guide, and synthetic
   dashboard screenshot establish its scope and visual evidence. Its source
   code is not run, and no packet captures are uploaded for the portfolio.
+- RiskScope and WebScope facts come from their supplied repositories. RiskScope's
+  screenshot is the hosted ExampleCorp synthetic dashboard; WebScope's is the
+  repository's owned local-fixture finding view. No project code, scans or
+  uploads are run to produce the portfolio entries.
 - No downloadable resume was supplied.
 
 ## Product Principles

@@ -125,7 +125,7 @@ never the only place essential status or actions appear.
 
 The shared container caps at 1600px and uses fluid side gutters. Major sections
 use the shared section spacing rather than identical card grids. Composition
-alternates a large portrait, three initial project scenes, a quieter biographical
+alternates a large portrait, five initial project scenes, a quieter biographical
 passage, a career timeline, dense skills/credentials, and an orange contact close.
 Five more projects expand on request using the same scene composition.
 
@@ -186,9 +186,10 @@ six pixels.
 Each project scene combines identity, purpose, explicit status, a real capture
 or clearly labeled concept illustration, its provenance caption, and substantive
 detail access. The visual is also an accessible button; essential controls and
-information are never hover-only. PacketScope, ReverseScope, and SentinelFlow
-appear initially, in that order. A centered outlined Explore more projects button reveals the other
-five projects, including Traffic Control, in the same scene and detail components,
+information are never hover-only. PacketScope, ReverseScope, SentinelFlow,
+RiskScope, and WebScope appear initially, in that order. A centered outlined
+Explore more projects button reveals the other five projects, including Traffic
+Control, in the same scene and detail components,
 replacing the compact archive rows rather than reducing their content.
 
 The disclosure uses a native button with `aria-expanded` and `aria-controls`.
@@ -205,7 +206,7 @@ additional application typography steps or real product output.
 
 Project image planes retain their native-scroll masks and bounded fine-pointer
 depth. They do not follow or replace the user's cursor. Expanded scenes receive
-the same treatment as the initial three; all scenes are static normal-flow
+the same treatment as the initial five; all scenes are static normal-flow
 compositions on mobile and under reduced motion.
 
 Details use a native modal dialog with protected focus, a sticky close row,
