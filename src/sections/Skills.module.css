@@ -1,10 +1,16 @@
 .heading { display: flex; justify-content: space-between; gap: 3rem; align-items: flex-end; margin-bottom: 4.5rem; }
 .heading > p { font-size: 0.88rem; line-height: 1.9; max-width: 30ch; color: var(--muted); }
-.skillGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5rem; }
-.skillGroup { padding-top: 1.5rem; border-top: 1px solid var(--ink); }
-.skillGroup h3 { font-size: 1.1rem; font-weight: 600; line-height: 1.4; letter-spacing: -0.02em; margin-bottom: 1.5rem; }
-.skillGroup ul { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
-.skillGroup li { font-size: 0.78rem; line-height: 1.75; color: var(--muted); }
+.skillGrid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1rem; }
+.skillGrid > :nth-child(-n+3) { grid-column: span 2; }
+.skillGrid > :nth-child(4), .skillGrid > :nth-child(5) { grid-column: span 3; }
+.skillGroup { display: flex; flex-direction: column; padding: 1.5rem; border: 1px solid var(--line); background: var(--paper); }
+.skillGroupHeader { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem; }
+.skillIcon { display: flex; align-items: center; justify-content: center; width: 2.5rem; height: 2.5rem; flex-shrink: 0; border: 1px solid var(--line); }
+.skillIcon svg { width: 1.25rem; height: 1.25rem; }
+.skillGroup h3 { font-size: 0.95rem; font-weight: 600; line-height: 1.4; letter-spacing: -0.015em; }
+.skillGroup ul { list-style: disc; padding-left: 1.1rem; display: flex; flex-direction: column; gap: 0.45rem; flex: 1; }
+.skillGroup li { font-size: 0.78rem; line-height: 1.7; color: var(--muted); }
+.skillAccent { display: block; width: 1.5rem; height: 2px; background: var(--orange-ink); margin-top: 1.5rem; }
 .credentials { display: grid; grid-template-columns: 0.9fr 1.1fr; align-items: start; gap: 5rem; margin-top: var(--section-space); }
 .credentialIntro { position: sticky; top: calc(var(--nav-height) + 28px); min-width: 0; }
 .credentialIntro > h2 { font-size: clamp(2rem, 3.5vw, 3.4rem); }
@@ -53,14 +59,15 @@
 .dialogActions { display: flex; align-items: center; flex-wrap: wrap; gap: 1rem 2rem; padding: 0 2rem 1.5rem; }
 
 @media (max-width: 1000px) {
-  .skillGrid { grid-template-columns: repeat(2, 1fr); gap: 2.5rem 3rem; }
+  .skillGrid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+  .skillGrid > :nth-child(-n+3), .skillGrid > :nth-child(4), .skillGrid > :nth-child(5) { grid-column: span 1; }
   .credentials { gap: 3rem; }
 }
 @media (max-width: 760px) {
   .heading { display: block; margin-bottom: 2.5rem; }
   .heading > p { margin-top: 1.5rem; max-width: 40ch; }
-  .skillGrid { gap: 2.5rem 1.5rem; }
-  .skillGroup h3 { font-size: 1rem; }
+  .skillGrid { gap: 0.5rem; }
+  .skillGroup h3 { font-size: 0.9rem; }
   .skillGroup li { font-size: 0.74rem; }
   .credentials { grid-template-columns: 1fr; gap: 2.5rem; }
   .credentialIntro { position: static; }

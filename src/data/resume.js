@@ -3,8 +3,8 @@ export const experience = [
     id: 'mmcy-lead',
     role: 'IT Team Lead',
     company: 'MMCY',
-    period: 'Apr 2026 – Present',
-    type: 'current',
+    period: 'Apr 2026 – Sep 2026',
+    type: 'Past',
     highlights: [
       'Lead and mentor IT support staff, overseeing daily operations, incident management, and escalations to ensure system reliability and SLA compliance across the organization.',
       'Strengthen security posture through SIEM monitoring, firewall policy enforcement, access control reviews, and incident response coordination.',
@@ -373,7 +373,7 @@ export const projects = [
 export const skills = [
   {
     category: 'Cloud & Identity',
-    icon: '☁',
+    icon: 'skill-cloud',
     color: 'brand',
     items: [
       'Microsoft Azure (AZ-900)',
@@ -386,23 +386,36 @@ export const skills = [
   },
   {
     category: 'Security Operations',
-    icon: '⬡',
+    icon: 'skill-shield',
     color: 'brand',
     items: [
-      'SIEM Monitoring',
       'Firewall Configuration & Monitoring',
       'Endpoint Security',
       'Incident Response',
-      'Log Analysis',
       'ISO 27001 Compliance',
+      'IOC Extraction',
+      'Root Cause Analysis',
+    ],
+  },
+    {
+    category: 'SIEM & Detection Engineering',
+    icon: 'skill-siem',
+    color: 'brand',
+    items: [
+      'Wazuh SIEM',
+      'Security Telemetry Analysis',
+      'YAML Based Detection Rules',
+      'Sigma Rule Subset',
+      'Event Replay',
+      'Detection Validation',
     ],
   },
   {
-    category: 'Networking & Infra',
-    icon: '◎',
+    category: 'Networking & Infrastructure',
+    icon: 'skill-network',
     color: 'neutral',
     items: [
-      'TCP/IP · DNS · DHCP',
+      'TCP/IP, DNS, DHCP',
       'VPN Configuration',
       'Network Diagnostics',
       'Windows Server Admin',
@@ -412,7 +425,7 @@ export const skills = [
   },
   {
     category: 'Scripting & Systems',
-    icon: '◈',
+    icon: 'skill-code',
     color: 'neutral',
     items: [
       'PowerShell',

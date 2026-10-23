@@ -98,8 +98,14 @@ export default function Skills() {
         <div className={styles.skillGrid}>
           {skills.map((group) => (
             <div className={styles.skillGroup} key={group.category}>
-              <h3>{group.category}</h3>
+              <div className={styles.skillGroupHeader}>
+                <span className={styles.skillIcon} aria-hidden="true">
+                  <svg><use href={`/icons.svg#${group.icon}`} /></svg>
+                </span>
+                <h3>{group.category}</h3>
+              </div>
               <ul>{group.items.map((item) => <li key={item}>{item}</li>)}</ul>
+              <span className={styles.skillAccent} aria-hidden="true" />
             </div>
           ))}
         </div>
